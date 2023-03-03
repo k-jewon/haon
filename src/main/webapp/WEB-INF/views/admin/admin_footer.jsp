@@ -5,7 +5,7 @@
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
 			<div>Copyright &copy;haon</div>
-			<div>팀장: 김재원, 이미영</div>
+			<div>팀장: 김제원, 이미영</div>
 			<div>팀원: 김민규, 김주은, 임성준, 변우진</div>
 		</div>
 	</div>
