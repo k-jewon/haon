@@ -73,6 +73,10 @@ body {
 	background-color: #fff
 }
 
+#content {
+	height: 100vh;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
 	outline: 0 !important
 }
@@ -520,6 +524,10 @@ pre code {
 .pre-scrollable {
 	max-height: 340px;
 	overflow-y: scroll
+}
+
+.container-fluid {
+	padding-top: 70px;
 }
 
 .container, .container-fluid, .container-lg, .container-md,
@@ -9261,6 +9269,9 @@ a.text-secondary:focus, a.text-secondary:hover {
 .text-success {
 	color: #1cc88a !important
 }
+.text-success1 {
+	color: #c6ea82 !important
+}
 
 a.text-success:focus, a.text-success:hover {
 	color: #13855c !important
@@ -11900,7 +11911,7 @@ footer.sticky-footer {
 
 footer.sticky-footer .copyright {
 	line-height: 1;
-	font-size: .8rem
+	font-size: 16px;
 }
 
 body.sidebar-toggled footer.sticky-footer {
