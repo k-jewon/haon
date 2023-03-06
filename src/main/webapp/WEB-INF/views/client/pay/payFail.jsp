@@ -6,8 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>결제 취소</title>
+<!-- Bootstrap core CSS -->
+<link href="resources/assets/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 </head>
-<body>
+<body class="bg-white">
+<div class="container">
 <h3>결제가 취소되었습니다.</h3>
 <table>
 <tr>
@@ -20,9 +24,10 @@
 <td>취소금액 : 원</td>
 </tr>
 <tr>
-<td><button name="mybook" onclick="location.href='/mybook'">예약내역</button>
-<button name="main" onclick="location.href='/'">확인</button></td>
+<td><button class="btn btn-primary btn-sm" name="mybook" onclick="location.href='/mybook'">예약내역</button>
+<button class="btn btn-secondary btn-sm" name="main" onclick="location.href='/'">확인</button></td>
 </tr>
 </table>
+</div>
 </body>
 </html>

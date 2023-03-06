@@ -28,7 +28,7 @@
 <script>
 	function paycheck() {
 		if (!confirm("결제하시겠습니까?")) {
-			alert("결제 취소");
+			return false;
 		} else {
 			alert("결제 완료");
 		}
@@ -36,7 +36,7 @@
 </script>
 </head>
 <body class="bg-light">
-<%@include file ="../../header.jsp" %>
+<jsp:include page="../../header.jsp"/>
 	<div class="container">
 		<div class="py-5">
 			<h2>결제하기</h2>
@@ -47,7 +47,7 @@
 				<h4 class="mb-3">
 					객실명 <span class="text-muted">(예약코드)</span>
 				</h4>
-				<form class="needs-validation" novalidate action="/paysuccess" method="POST">
+				<form class="needs-validation" novalidate method="POST" action="/paysuccess">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="firstName">결제자</label> <input type="text"
@@ -130,16 +130,16 @@
 					</div>
 					<span class="text-danger">※환불 시 주의사항 : 예약된 체크인 날짜의 1일 전까지만 환불이 가능합니다.</span>
 					<hr class="mb-4">
-					<div class="row">
-						<button class="btn btn-success btn-lg btn-block" type="submit"
-							onclick="paycheck()">결제하기</button>
-						<button class="btn btn-secondary btn-lg btn-block" type="button" onclick="location.href='/payfail'">취소하기</button>
+					<div class="row">&nbsp;&nbsp;
+						<button class="btn btn-outline-success" type="submit"
+							onclick="return paycheck()">결제하기</button>&nbsp;&nbsp;
+						<button class="btn btn-outline-secondary" type="button" onclick="location.href='/payfail'">취소하기</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-<%@include file ="../../footer.jsp" %>
+<jsp:include page="../../footer.jsp"/>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
