@@ -28,15 +28,15 @@
 		<hr class="mb-6">
 		<div class="row">
 		<div class="col-md-6 mb-3"><span class="text-muted">(객실명)</span></div>
-		<h5 class="col-md-6 mb-3"><span class="badge badge-primary">결제됨</span></h5>
+		<h5 class="col-md-6 mb-3 text-right"><span class="badge badge-primary">결제됨</span></h5>
 		</div>
 		<div class="row">
 		<div class="col-md-6 mb-3"><span class="text-muted">(결제자)</span></div>
-		<div class="col-md-6 mb-3"><span class="text-muted">(예약날짜)</span></div>
+		<div class="col-md-6 mb-3 text-right"><span class="text-muted">(예약날짜)</span></div>
 		</div>
 		<div class="row">
 		<div class="col-md-6 mb-3"><span class="text-muted">(금액)원</span></div>
-		<div class="col-md-6 mb-3">
+		<div class="col-md-6 mb-3 text-right">
 		<button type="submit" name="resetpay" class="btn btn-danger">결제취소</button>
 		</div>
 		</div>

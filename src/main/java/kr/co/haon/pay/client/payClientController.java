@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class payClientController {
-	@RequestMapping("/payform")
+	@RequestMapping(value = "/payform", method = RequestMethod.GET)
 	public String payForm() {
 		return "client/pay/payForm";
 	}
@@ -16,7 +16,7 @@ public class payClientController {
 		return "client/pay/paySuccess";
 	}
 	
-	@RequestMapping("/payfail")
+	@RequestMapping(value = "/payfail", method = RequestMethod.GET)
 	public String payFail() {
 		return "client/pay/payFail";
 	}
