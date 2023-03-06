@@ -24,6 +24,11 @@ public class HomeController {
 		
 		return "client/index";
 	}
-	
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String mypage() {
+		
+		
+		return "client/mypage";
+	}
 	
 }
