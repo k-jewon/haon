@@ -33,7 +33,26 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "admin/pay/chart";
+		return "admin/chart/chart";
 	}
-	
+	@RequestMapping(value="/1", method= RequestMethod.GET)
+	public String login() {
+		return "/admin/user/adminLogin";
+	}
+	@RequestMapping(value="/2", method= RequestMethod.GET)
+	public String pay() {
+		return "/admin/pay/payList";
+	}
+	@RequestMapping(value="/3", method= RequestMethod.GET)
+	public String roomList() {
+		return "/admin/room/roomList";
+	}
+	@RequestMapping(value="/4", method= RequestMethod.GET)
+	public String userList() {
+		return "/admin/user/userList";
+	}
+	@RequestMapping(value="/5", method= RequestMethod.GET)
+	public String bookList() {
+		return "/admin/book/bookList";
+	}
 }

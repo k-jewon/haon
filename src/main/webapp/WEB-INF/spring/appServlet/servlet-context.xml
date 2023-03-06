@@ -23,6 +23,15 @@
 	
 	<context:component-scan base-package="kr.co.haon" />
 	
-	
+	<interceptors>
+		<interceptor>
+			<!--  어듬 적용될 URL -->
+			<mapping path="/Admin/*"/>
+			<!--  인터셉터가 제외될 URL -->
+			<exclude-mapping path="/Client/*"/>
+			<!-- 적용될 인터셉터를 지정 -->
+			<beans:bean id="Admin" class="kr.co.haon.user.admin.userAdminInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>

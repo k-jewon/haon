@@ -3,21 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.haon.pay.admin.payAdminDAO">
-   <select id="list" resultType="kr.co.haon.pay.payVO">
-      select * from emp2
+   <select id="payList" resultType="kr.co.haon.pay.payVO">
+      select pay_id, room_name, user_id, pay_static, pay_price from haon_pay
    </select>
-   <insert id="insert" parameterType="org.sp.mybatis.Emp">
-   insert into emp2 (empno, ename, deptno, job, sal)
-      values(#{empno}, #{ename}, #{deptno}, #{job}, #{sal})
-   </insert>
-   <select id="info" resultType="org.sp.mybatis.Emp">
-      select * from emp2 where empno=#{empno}
-   </select>
-   <update id="update" parameterType="org.sp.mybatis.Emp">
-      update emp2 set deptno=#{deptno}, sal=#{sal}
-      where empno=#{empno}
-   </update>
    <delete id="delete">
-      delete from emp2 where empno=#{empno}
+      delete from haon_pay where pay_id=#{pay_id}
    </delete>
 </mapper>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="../admin_header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/admin/admin_header.jsp"></jsp:include>
 <script>
 	$(document).ready(function() {
 		$('#nav3').addClass('active');
@@ -514,4 +514,4 @@
 	</div>
 </div>
 <!-- End of Main Content -->
-<jsp:include page="../admin_footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/views/admin/admin_footer.jsp"></jsp:include>
