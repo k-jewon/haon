@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>haon 홈페이지</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
@@ -44,49 +44,38 @@
 <meta name="msapplication-config" content="/docs/4.6/assets/img/favicons/browserconfig.xml">
 <meta name="theme-color" content="#563d7c">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
+   
     <!-- Custom styles for this template -->
-    <link href="resources/css/carousel.css" rel="stylesheet">
+    <link href="resources\css\carousel.css" rel="stylesheet">
+    <link href="resources\css\Custom.css" rel="stylesheet">
   </head>
   <body>
     
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">Haon</a>
+    <a class="navbar-brand" href="/Index.do" title="Haon 홈화면 이동">Haon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Room1 <span class="sr-only">(current)</span></a>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" title="Room1 자세히 보기">
+          <a class="nav-link" href="/Room1List.do">Room1 <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Room2</a>
+        <li class="nav-item" title="Room2 자세히 보기">
+          <a class="nav-link" href="/Room2List.do">Room2</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Room3</a>
+        <li class="nav-item" title="Room3 자세히 보기">
+          <a class="nav-link" href="/Room3List.do">Room3</a>
         </li>
-         <li class="nav-item">
-          <a class="nav-link" href="#">Room4</a>
+         <li class="nav-item" title="Room4 자세히 보기">
+          <a class="nav-link" href="/Room4List.do">Room4</a>
+        </li>
+        <li class="nav-item" title="회원가입 화면 이동">
+          <a class="nav-link" href="/Join.do">회원가입</a>
+        </li>
+        <li class="nav-item" title="로그인 화면 이동">
+          <a class="nav-link" href="/Login.do">로그인</a>
         </li>
       </ul>
     </div>
