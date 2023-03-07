@@ -35,7 +35,7 @@
 					  </div>
 					  <div class="tab-pane container col-lg-12" id="menu1">
 					  </div>
-					  <div class="tab-pane container col-lg-12" id="menu2">...</div>
+					  <div class="tab-pane container col-lg-12" id="menu2"><jsp:include page="/WEB-INF/views/client/pay/mypay.jsp" /></div>
 					</div>
                 </div>
                 <!-- /.container-fluid -->
