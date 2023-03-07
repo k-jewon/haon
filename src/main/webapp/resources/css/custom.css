@@ -42,3 +42,19 @@ a{
 	height:50px;
 	padding: 0 1rem !important;
 }
+
+.container-fluid {
+	padding-top: 70px;
+}
+
+#content {
+	height: 100vh;
+}
+
+.text-success1 {
+	color: #c6ea82 !important
+}
+
+footer.sticky-footer .copyright {
+	font-size: 16px;
+}

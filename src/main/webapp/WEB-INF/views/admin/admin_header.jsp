@@ -6,28 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자 페이지</title>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-
-<!-- Custom fonts for this template-->
-<link href="resources/vendor/fontawesome-free/css/all.min.css"
-	rel="stylesheet" type="text/css">
+ <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
 
 <!-- Custom styles for this template-->
 <link href="resources/css/sb-admin-2.min.css" rel="stylesheet">
-
-<!-- Custom styles for this page -->
-<link href="resources/vendor/datatables/dataTables.bootstrap4.min.css"
-	rel="stylesheet">
+<link href="resources/css/custom.css" rel="stylesheet">
 
 </head>
-
 <body id="page-top">
 	<nav
 		class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top">
@@ -50,7 +43,8 @@
 					href="/adminRoomList">객실관리</a></li>
 				<li class="nav-item ml-5" id="nav5"><a class="nav-link"
 					href="/adminPayList">결제관리</a></li>
-				<li class="nav-item ml-5"><a class="nav-link" href="#">고객페이지로 이동</a></li>
+				<li class="nav-item ml-5"><a class="nav-link" href="#">고객페이지로
+						이동</a></li>
 				<li class="nav-item ml-5"><a class="nav-link" href="#">로그아웃</a></li>
 			</ul>
 		</div>
