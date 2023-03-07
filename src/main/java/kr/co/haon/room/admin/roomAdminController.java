@@ -1,5 +1,13 @@
 package kr.co.haon.room.admin;
 
-public class roomAdminController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+@Controller
+public class roomAdminController {
+	@RequestMapping(value = "/adminRoomList", method = RequestMethod.GET)
+	   public String adminRoomList() {
+		   return "admin/room/roomList";
+	   }
 }
