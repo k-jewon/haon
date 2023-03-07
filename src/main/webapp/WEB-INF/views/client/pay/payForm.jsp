@@ -1,42 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta name="author"
-	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-<meta name="generator" content="Hugo 0.101.0">
-<title>결제 폼</title>
-<link rel="canonical"
-	href="https://getbootstrap.com/docs/4.6/examples/checkout/">
-<!-- Bootstrap core CSS -->
-<link href="resources/assets/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="resources/form-validation.css" rel="stylesheet">
-<style>
-#creditcard {
-	display: none;
-}
-</style>
-<script>
-	function paycheck() {
-		if (!confirm("결제하시겠습니까?")) {
-			return false;
-		} else {
-			alert("결제 완료");
-		}
-	}
-</script>
-</head>
+<jsp:include page="/WEB-INF/views/client/header.jsp" />
 <body class="bg-light">
-<jsp:include page="../../header.jsp"/>
 	<div class="container">
 		<div class="py-5">
 			<h2>결제하기</h2>
@@ -133,24 +99,19 @@
 					<div class="row">&nbsp;&nbsp;
 						<button class="btn btn-outline-success" type="submit"
 							onclick="return paycheck()">결제하기</button>&nbsp;&nbsp;
-						<button class="btn btn-outline-secondary" type="button" onclick="location.href='/payfail'">취소하기</button>
+						<button class="btn btn-outline-secondary" type="button" onclick="location.href='/'">취소하기</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-<jsp:include page="../../footer.jsp"/>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script>
-		window.jQuery
-				|| document
-						.write('<script src="resources/assets/js/vendor/jquery.slim.min.js"><\/script>')
-	</script>
-	<script src="resources/assets/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="resources/form-validation.js"></script>
-</body>
-</html>
+<script>
+	function paycheck() {
+		if (!confirm("결제하시겠습니까?")) {
+			return false;
+		} else {
+			alert("결제 완료");
+		}
+	}
+</script>
+<jsp:include page="/WEB-INF/views/client/footer.jsp" />
