@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration>
+		
+	<!-- Alias 설정 --> 
+	<typeAliases>
+		<typeAlias alias="User" type="kr.co.haon.user.UserVO" />
+		<typeAlias alias="Pay" type="kr.co.haon.pay.PayVO" />
+		<typeAlias alias="Book" type="kr.co.haon.book.BookVO" />
+		<typeAlias alias="Room" type="kr.co.haon.room.RoomVO" />
+	</typeAliases>
+	
+	<!-- Sql Mapper 설정 -->
+	<mappers>
+		
+		<mapper resource="mapping/UserAdminMapper.xml" />
+		<mapper resource="mapping/UserClientMapper.xml" />
+		
+		<mapper resource="mapping/BookAdminMapper.xml" />
+		<mapper resource="mapping/BookClientMapper.xml" />
+		
+		<mapper resource="mapping/RoomAdminMapper.xml" />
+		<mapper resource="mapping/RoomClientMapper.xml" />
+		
+		<mapper resource="mapping/PayAdminMapper.xml" />
+		<mapper resource="mapping/PayClientMapper.xml" />
+		
+		<mapper resource="mapping/IndexAdminMapper.xml" />
+	</mappers>
+  </configuration>

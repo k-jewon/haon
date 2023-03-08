@@ -41,7 +41,7 @@
 
 	<!-- Spring과 Mybatis 연동 설정 -->
    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-      <property name="mapperLocations" value="classpath:kr/co/haon/*/*.xml" />
+      <property name="configLocation" value="classpath:sql-map-config.xml" />
       <property name="dataSource" ref="dataSource" />
    </bean>
    

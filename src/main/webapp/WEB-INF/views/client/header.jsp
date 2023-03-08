@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,12 +14,12 @@
 	href="https://getbootstrap.com/docs/4.6/examples/carousel/">
 
 
-<link href="resources\css\sb-admin-2.min.css" rel="stylesheet">
-<link href="resources\css\carousel.css" rel="stylesheet">
-<link href="resources\css\custom.css" rel="stylesheet">
+<link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/resources/css/carousel.css" rel="stylesheet">
+<link href="/resources/css/custom.css" rel="stylesheet">
 
 </head>
-<body class="p-0">
+<body class="d-flex flex-column min-vh-100  p-0">
 
 	<header>
 		<nav
@@ -40,10 +41,19 @@
 					href="/Room3List.do">사랑채</a></li>
 				<li class="nav-item ml-5" id="nav4"><a class="nav-link"
 					href="/Room4List.do">백두산</a></li>
-				<li class="nav-item ml-5" id="nav5"><a class="nav-link"
-					href="/Login.do">로그인</a></li>
-				<li class="nav-item ml-5"><a class="nav-link" href="/Join.do">회원가입</a></li>
+					
+					<c:choose>
+						<c:when test="${login_info != null }">
+							<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/mypage">내 정보</a></li>
+							<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/user/logout">로그아웃</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/user/login">로그인</a></li>			
+							<li class="nav-item ml-5"><a class="nav-link" href="/client/user/join">회원가입</a></li>
+						</c:otherwise>
+					</c:choose>
 			</ul>
 		</div>
 	</nav>
+	
 	</header>
