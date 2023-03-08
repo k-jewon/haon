@@ -17,33 +17,27 @@
 		                            <form class="user">
 		                            	<h6>이메일</h6>
 		                                <div class="form-group">
-		                                    <input type="email" class="form-control form-control-user" name="email"
+		                                    <input type="email" class="form-control form-control-user" name="user_email"
 		                                        placeholder="Email Address" required>
 		                                </div>
 		                                <h6>비밀번호</h6>
 		                                <div class="form-group row">
-		                                    <div class="col-sm-6 mb-3 mb-sm-0">
-		                                        <input type="password" class="form-control form-control-user" name="password"
-		                                            placeholder="Password" required>
-		                                    </div>
-		                                    <div class="col-sm-6">
-		                                        <input type="password" class="form-control form-control-user" name="repeatPassword"
-		                                            id="exampleRepeatPassword" placeholder="Repeat Password" required>
-		                                    </div>
+	                                        <input type="password" class="form-control form-control-user" name="user_pw"
+	                                            placeholder="Password" required>
 		                                </div>
 		                                <h6>이름</h6>
 		                                <div class="form-group">
-		                                	<input type="text" class="form-control form-control-user" name="name"
+		                                	<input type="text" class="form-control form-control-user" name="user_name"
 												placeholder="Name" required>
 		                                </div>
 		                                <h6>휴대폰 번호</h6>
 		                                <div class="form-group">
-		                                	<input type="text" class="form-control form-control-user" name="phone"
+		                                	<input type="text" class="form-control form-control-user" name="user_phone"
 												placeholder="Phone number" required>
 		                                </div>
 		                                <div class="form-group">
 		                                	<h6>성별</h6>
-		                                	<select class="form-control form-control-user select" name="gender" required>
+		                                	<select class="form-control form-control-user select" name="user_gender" required>
 								              <option value="M">남성</option>
 								              <option value="W">여성</option>
 								              <option value="A">양성</option>
@@ -51,14 +45,14 @@
 		                                </div>
 		                                <div class="form-group">
 		                                	<h6>생년월일</h6>
-		                                	<input type="date" class="form-control form-control-user" name="birth">
+		                                	<input type="date" class="form-control form-control-user" name="user_birth">
 		                                </div>
 		                                <div class="form-group">
 		                                	<h6>주소</h6>
-		                                	<input type="text" class="form-control form-control-user" name="addr1" placeholder="Address1">
+		                                	<input type="text" class="form-control form-control-user" name="user_addr1" placeholder="Address1">
 		                                </div>
 		                                <div class="form-group">
-		                                	<input type="text" class="form-control form-control-user" name="addr2" placeholder="Address2">
+		                                	<input type="text" class="form-control form-control-user" name="user_addr2" placeholder="Address2">
 		                                </div>
 		                                <input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
 		                                <hr>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
-<footer class="sticky-footer text-white bg-dark">
+<footer class="sticky-footer text-white bg-dark mt-auto">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
 			<div>Copyright &copy;haon</div>
@@ -17,7 +17,7 @@
 
 <script	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<script src="resources/js/bookForm.js" ></script>
+<script src="/resources/js/bookForm.js" ></script>
 
 </body>
 </html>
