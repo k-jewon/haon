@@ -41,34 +41,18 @@
 					href="/Room3List.do">사랑채</a></li>
 				<li class="nav-item ml-5" id="nav4"><a class="nav-link"
 					href="/Room4List.do">백두산</a></li>
-					
-				<li class="nav-item ml-5" id="nav5"><a class="nav-link"
-					href="/client/user/login">로그인</a></li>
-				<li class="nav-item ml-5" id="nav5">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  				Launch demo modal
-				</button></li>					
-				<li class="nav-item ml-5"><a class="nav-link" href="/client/user/join">회원가입</a></li>
+				<c:choose>
+					<c:when test="${login_info != null }">
+						<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/mypage">내 정보</a></li>
+						<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/user/logout">로그아웃</a></li>
+					</c:when>
+					<c:otherwise>
+						<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/user/login">로그인</a></li>			
+						<li class="nav-item ml-5"><a class="nav-link" href="/client/user/join">회원가입</a></li>
+					</c:otherwise>
+				</c:choose>	
+				
 			</ul>
 		</div>
 	</nav>
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 	</header>

@@ -20,7 +20,7 @@ public class IndexClientController {
 		return "client/index";
 	}
 
-	@RequestMapping(value = "/mypage.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/client/mypage", method = RequestMethod.GET)
 	public String mypage() {
 		
 		return "client/mypage";
