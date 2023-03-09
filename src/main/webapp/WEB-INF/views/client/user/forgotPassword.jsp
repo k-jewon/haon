@@ -50,10 +50,10 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="/Join.do">회원가입</a>
+                                        <a class="small" href="/client/user/join">회원가입</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="/Login.do">로그인</a>
+                                        <a class="small" href="/client/user/login">로그인</a>
                                     </div>
                                 </div>
                             </div>
