@@ -10,6 +10,9 @@
 		<typeAlias alias="Pay" type="kr.co.haon.pay.PayVO" />
 		<typeAlias alias="Book" type="kr.co.haon.book.BookVO" />
 		<typeAlias alias="Room" type="kr.co.haon.room.RoomVO" />
+		
+		
+		
 	</typeAliases>
 	
 	<!-- Sql Mapper 설정 -->
