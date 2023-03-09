@@ -10,4 +10,14 @@ public class RoomAdminController {
 	   public String adminRoomList() {
 		   return "admin/room/roomList";
 	   }
+	
+	@RequestMapping(value = "/adminRoomInsertForm", method = RequestMethod.GET)
+	public String adminRoomInsertForm() {
+		return "admin/room/roomInsert";
+	}
+	
+	@RequestMapping(value = "/adminRoomInsert", method = RequestMethod.POST)
+	public String adminRoomInsert() {
+		return "admin/room/roomList";
+	}
 }

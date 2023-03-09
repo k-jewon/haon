@@ -7,7 +7,7 @@ private int pay_id;
 private int user_id;
 private String user_name;
 private int room_id;
-private int room_name; 
+private String room_name; 
 private String book_id; 
 private int pay_payment;
 private int pay_price; 
@@ -38,10 +38,10 @@ public int getRoom_id() {
 public void setRoom_id(int room_id) {
 	this.room_id = room_id;
 }
-public int getRoom_name() {
+public String getRoom_name() {
 	return room_name;
 }
-public void setRoom_name(int room_name) {
+public void setRoom_name(String room_name) {
 	this.room_name = room_name;
 }
 public String getBook_id() {

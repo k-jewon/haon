@@ -41,11 +41,12 @@
                      <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead>
                            <tr>
-                              <th>결제번호</th>
+                              <th>결제 번호</th>
                               <th>객실명</th>
                               <th>예약자명</th>
-                              <th>결제상태</th>
+                              <th>결제 상태</th>
                               <th>총 결제금액</th>
+                              <th>결제 날짜</th>
                               <th>비고</th>
                            </tr>
                         </thead>
@@ -55,10 +56,12 @@
                            <tr>
                                <td><c:out value="${payVO.pay_id}" /></td>
                                <td><c:out value="${payVO.room_name}" /></td>
-                               <td><c:out value="${payVO.user_id}" /></td>
+                               <td><c:out value="${payVO.user_name}" /></td>
                                <td><c:out value="${payVO.pay_static}" /></td>
                                <td><c:out value="${payVO.pay_price}" /></td>
-                               <td><input type="button" value="결제취소" /></td>
+                               <td><c:out value="${payVO.pay_date}" /></td>
+                               <td><input type="button" value="결제취소" class="btn btn-secondary btn-icon-split" onclick="payUpdate()"/>
+                              <input type="button" value="영구삭제" class="btn btn-danger btn-icon-split" onclick="paydelete()"/></td>
                            </tr>
                            </c:forEach> --%>
                            <tr>
@@ -67,7 +70,9 @@
                               <td>Edinburgh</td>
                               <td>2011/04/25</td>
                               <td>$320,800</td>
-                              <td><input type="button" value="결제취소" /></td>
+                              <td>$320,800</td>
+                              <td><input type="button" value="결제취소" class="btn btn-secondary btn-icon-split" onclick="payUpdate()"/> 
+                              <input type="button" value="영구삭제" class="btn btn-danger btn-icon-split" onclick="paydelete()"/></td>
                            </tr>
                            <tr>
                               <td>Garrett Winters</td>
@@ -75,7 +80,9 @@
                               <td>Tokyo</td>
                               <td>63</td>
                               <td>2011/07/25</td>
-                              <td><input type="button" value="결제취소" /></td>
+                              <td>2011/07/25</td>
+                              <td><input type="button" value="결제취소" class="btn btn-secondary btn-icon-split" onclick="payUpdate()"/>
+                              <input type="button" value="영구삭제" class="btn btn-danger btn-icon-split" onclick="paydelete()"/></td>
                            </tr>
                         </tbody>
                      </table>

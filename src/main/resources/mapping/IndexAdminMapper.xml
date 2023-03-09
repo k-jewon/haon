@@ -3,10 +3,27 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.haon.index.admin.IndexAdminDAO">
-   <select id="bookCount" resultType="kr.co.haon.book.BookVO">
-      SELECT COUNT(book_num) FROM haon_book;
+   <select id="todaySubscriber" resultType="kr.co.haon.pay.PayVO">
+      SELECT COUNT(pay_id) 
+      FROM haon_pay 
+      WHERE DATE_FORMAT(pay_date, "%Y-%m-%d") = CURDATE();
    </select>
-   <select id="member" resultType="kr.co.haon.user.UserVO">
+   <select id="todaySales" resultType="kr.co.haon.pay.PayVO">
+      SELECT SUM(pay_price)
+	  FROM haon_pay
+	  WHERE DATE_FORMAT(pay_date, "%Y-%m-%d") = CURDATE();
+   </select>
+   <select id="allSales" resultType="kr.co.haon.pay.PayVO">
+      SELECT SUM(pay_price)
+	  FROM haon_pay;
+   </select>
+   <select id="allMember" resultType="kr.co.haon.user.UserVO">
       SELECT COUNT(user_id) FROM haon_user;
+   </select>
+   
+   <select id="newMember" resultType="kr.co.haon.user.UserVO">
+      SELECT user_id, MONTH(user_date) FROM haon_user
+	  WHERE user_date BETWEEN '2022-10-01' AND NOW()
+	  ORDER BY user_date DESC;
    </select>
 </mapper>
