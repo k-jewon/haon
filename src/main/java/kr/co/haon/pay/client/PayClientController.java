@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-
+import kr.co.haon.pay.client.PayClientService;
 import kr.co.haon.pay.PayVO;
 
 @Controller
@@ -24,7 +24,6 @@ public class PayClientController {
 	@Autowired
 	private PayClientService pcservice;
 	
-	private PayVO pvo;
 	
 	private static final String HOST = "https://kapi.kakao.com";
 	private KakaoReadyVO kakaor;

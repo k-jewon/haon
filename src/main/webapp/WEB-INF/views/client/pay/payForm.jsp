@@ -21,7 +21,7 @@
 						<div class="col-md-6 mb-3">
 							<label for="userName">결제자</label> <input type="text" name="user_name"
 								class="form-control" id="userName" placeholder="" value="최정현"
-								required readonly>
+								required readonly />
 						</div>
 					</div>
 
