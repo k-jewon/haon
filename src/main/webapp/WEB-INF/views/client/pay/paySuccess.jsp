@@ -28,16 +28,16 @@
 						<div class="text-center">
 							<h1 class="h4 text-gray-900 mb-4">결제가 완료되었습니다.</h1>
 						</div>
-						<form class="user" action="/mypage.do" method="get">
+						<form class="user" action="/mypay" method="GET">
 							<table>
 								<tr>
-									<td>결제자 :</td>
+									<td>결제자 : </td>
 								</tr>
 								<tr>
-									<td>결제일시 :</td>
+									<td>결제일시 : </td>
 								</tr>
 								<tr>
-									<td>상품명 :</td>
+									<td>상품명 : </td>
 								</tr>
 								<tr>
 									<td>결제금액 : 원</td>

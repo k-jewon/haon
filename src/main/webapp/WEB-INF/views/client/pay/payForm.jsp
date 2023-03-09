@@ -2,22 +2,30 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/views/client/header.jsp" />
+<script>
+$(document).ready(function(){
+	
+})
+</script>
 <body class="bg-light">
-	<div class="container">
-		<div class="py-5">
+	<div class="container mt-5 mb-5">
+		<div class="py-5 text-center">
 			<h2>결제하기</h2>
 		</div>
 
 		<div class="row">
 			<div class="col-md-12">
+				<form class="needs-validation" novalidate method="POST" action="/kakaopay">
 				<h4 class="mb-3">
-					객실명 <span class="text-muted">(예약코드)</span>
+					무궁화 <span class="text-muted">(예약코드)</span>
 				</h4>
-				<form class="needs-validation" novalidate method="POST" action="/paysuccess">
+				<input type="hidden" name="roomName" value="무궁화"/>
+				<input type="hidden" name="bookId" value="1"/>
+				<input type="hidden" name="userId" value="1"/>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<label for="firstName">결제자</label> <input type="text"
-								class="form-control" id="firstName" placeholder="" value=""
+							<label for="userName">결제자</label> <input type="text" name="userName"
+								class="form-control" id="userName" placeholder="" value="성이름"
 								required readonly>
 						</div>
 					</div>
@@ -26,13 +34,13 @@
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="checkin">체크인 시간 <span class="text-muted">(check-in)</span></label>
-							<input type="date" class="form-control" id="checkin"
-								value="(체크인 날짜)" readonly>
+							<input type="date" class="form-control" id="checkin" name="checkin"
+								value="2023-03-11" readonly>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="checkout">체크아웃 시간 <span class="text-muted">(check-out)</span></label>
-							<input type="date" class="form-control" id="checkout"
-								value="(체크아웃 날짜)" readonly>
+							<input type="date" class="form-control" id="checkout" name="checkout"
+								value="2023-03-13" readonly>
 						</div>
 					</div>
 
@@ -52,33 +60,33 @@
 								class="custom-control-label" for="kakao">카카오 페이</label>
 						</div>
 					</div>
-					<div id="creditcard">
+					<!-- <div id="creditcard">
 						<div class="row">
 							<div class="col-md-6 mb-3">
 								<label for="cc-name">카드사</label> <input type="text"
-									class="form-control" id="cc-name" placeholder="">
+									class="form-control" id="cc-name" placeholder="xx카드">
 							</div>
 							<div class="col-md-6 mb-3">
 								<label for="cc-number">카드 번호</label> <input type="text"
-									class="form-control" id="cc-number" placeholder="">
+									class="form-control" id="cc-number" placeholder="(16자리)">
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-md-3 mb-3">
 								<label for="cc-expiration">카드 유효기간</label> <input type="text"
-									class="form-control" id="cc-expiration" placeholder="">
+									class="form-control" id="cc-expiration" placeholder="연도/월">
 							</div>
 							<div class="col-md-3 mb-3">
-								<label for="cc-cvv">CVC</label> <input type="text"
+								<label for="cc-cvv">CVC</label> <input type="password"
 									class="form-control" id="cc-cvv" placeholder="">
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<hr class="mb-4">
 					<h4 class="mb-3">결제금액</h4>
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<input type="text" class="form-control" placeholder="0" value=""
+							<input type="text" class="form-control" placeholder="0" value="500000" name="payPrice"
 								required readonly>
 						</div>
 						<div class="col-md-6 mb-3">
@@ -96,10 +104,12 @@
 					</div>
 					<span class="text-danger">※환불 시 주의사항 : 예약된 체크인 날짜의 1일 전까지만 환불이 가능합니다.</span>
 					<hr class="mb-4">
-					<div class="row">&nbsp;&nbsp;
-						<button class="btn btn-outline-success" type="submit"
-							onclick="return paycheck()">결제하기</button>&nbsp;&nbsp;
-						<button class="btn btn-outline-secondary" type="button" onclick="location.href='/'">취소하기</button>
+					<div class="row">
+						<div class="col-md-4 m-auto mb-5">
+						<button class="btn btn-primary btn-lg btn-block" type="submit" id="btn-kakaopay"
+							onclick="return paycheck()" >결제하기</button></div>
+						<div class="col-md-4 m-auto mb-5">
+						<button class="btn btn-secondary btn-lg btn-block" type="button" onclick="location.href='/'">취소하기</button></div>
 					</div>
 				</form>
 			</div>
@@ -109,8 +119,6 @@
 	function paycheck() {
 		if (!confirm("결제하시겠습니까?")) {
 			return false;
-		} else {
-			alert("결제 완료");
 		}
 	}
 </script>
