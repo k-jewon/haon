@@ -4,9 +4,21 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.haon.pay.admin.PayAdminDAO">
    <select id="payList" resultType="kr.co.haon.pay.PayVO">
-      select pay_id, room_name, user_id, pay_static, pay_price from haon_pay
+   		SELECT PAY_ID, R.ROOM_NAME, U.USER_NAME, P.PAY_STATIC, P.PAY_PRICE, P.PAY_DATE
+		FROM HAON_PAY AS P 
+		JOIN HAON_USER AS U
+		ON P.USER_ID=U.USER_ID
+		JOIN HAON_BOOK AS B
+		ON P.BOOK_ID=B.BOOK_ID
+		JOIN HAON_ROOM AS R
+		ON P.ROOM_ID=R.ROOM_ID
+		ORDER BY P.PAY_DATE DESC;
    </select>
-   <delete id="delete">
-      delete from haon_pay where pay_id=#{pay_id}
+    <update id="payUpdate" parameterType="kr.co.haon.pay.PayVO">
+      update haon_pay set pay_static='결제취소'
+      where pay_id=#{pay_id}
+   </update>
+   <delete id="payDelete" parameterType="kr.co.haon.pay.PayVO">
+      delete from haon_pay where pay_id=#{pay_id} and pay_static='결제취소'
    </delete>
 </mapper>
