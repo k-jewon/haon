@@ -19,7 +19,7 @@
 
 			<!-- Begin Page Content -->
 			<div class="container-fluid">
-
+			${list }
 				<!-- Page Heading -->
 				<h1 class="h3 mb-2 text-gray-800">
 					<br>예약 리스트<br>
