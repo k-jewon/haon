@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
+<jsp:include page="/WEB-INF/views/client/user/userModal.jsp" />
 <footer class="sticky-footer text-white bg-dark mt-auto">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">

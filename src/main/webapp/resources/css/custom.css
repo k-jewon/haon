@@ -88,3 +88,13 @@ a:visited {
 footer.sticky-footer .copyright {
 	font-size: 16px;
 }
+.modal{
+	background: rgba(0,0,0,0.3);
+}
+.nav-link{
+	word-break:keep-all;
+}
+.navbar-nav .nav-item{
+	display: flex;
+	align-items: center;
+}

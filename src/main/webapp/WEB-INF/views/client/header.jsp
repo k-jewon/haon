@@ -34,16 +34,16 @@
 		<div class="collapse navbar-collapse" id="navbarsExample04">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item ml-5" id="nav1"><a class="nav-link"
-					href="/Room1List.do">무궁화</a></li>
+					href="/Room1List.do">무궁화(2인)</a></li>
 				<li class="nav-item ml-5" id="nav2"><a class="nav-link"
-					href="/Room2List.do">소나무</a></li>
+					href="/Room2List.do">소나무(4인)</a></li>
 				<li class="nav-item ml-5" id="nav3"><a class="nav-link"
-					href="/Room3List.do">사랑채</a></li>
+					href="/Room3List.do">사랑채(스위트룸)</a></li>
 				<li class="nav-item ml-5" id="nav4"><a class="nav-link"
-					href="/Room4List.do">백두산</a></li>
+					href="/Room4List.do">단체예약</a></li>
 				<c:choose>
 					<c:when test="${login_info != null }">
-						<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/mypage">내 정보</a></li>
+						<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/mypage">${login_info.user_name}님의 MyPage</a></li>
 						<li class="nav-item ml-5" id="nav5"><a class="nav-link"	href="/client/user/logout">로그아웃</a></li>
 					</c:when>
 					<c:otherwise>
