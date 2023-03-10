@@ -20,9 +20,11 @@ datasets : [{
         bottom: 0
       }
     },
-    legend: {
-      display: false
-    },
+    plugins: {
+		legend: {
+			display: false
+			},
+	},
      scales: {
       xAxes: [{
         time: {

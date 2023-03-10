@@ -28,16 +28,16 @@
 						<div class="text-center">
 							<h1 class="h4 text-gray-900 mb-4">결제가 취소되었습니다.</h1>
 						</div>
-						<form class="user" action="/mypage.do" method="get">
+						<form class="user" action="/client/mypage" method="get">
 							<table>
 								<tr>
-									<td>결제자 :</td>
+									<td>결제자 : <c:out value="${info.tid}"/></td>
 								</tr>
 								<tr>
-									<td>상품명 :</td>
+									<td>상품명 : <c:out value="${info.item_name}"/></td>
 								</tr>
 								<tr>
-									<td>취소금액 : 원</td>
+									<td>취소금액 : <c:out value="${info.amount.total}"/>원</td>
 								</tr>
 								<tr>
 									<td><button class="btn btn-primary btn-sm" type="submit">예약내역</button>

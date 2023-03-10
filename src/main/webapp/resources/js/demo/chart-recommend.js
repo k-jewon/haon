@@ -22,8 +22,10 @@ document.getElementById("chartRecommend"), {
       displayColors: false,
       caretPadding: 10,
     },
-    legend: {
-      display: false
-    },
+	plugins: {
+		legend: {
+			display: false
+			},
+	},
   },
 });

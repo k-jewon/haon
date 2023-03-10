@@ -3,21 +3,23 @@ package kr.co.haon.pay;
 import java.sql.Date;
 
 public class PayVO {
-private int pay_id;
+private String pay_id;
 private int user_id;
 private String user_name;
 private int room_id;
-private int room_name; 
+private String room_name; 
 private String book_id; 
 private int pay_payment;
 private int pay_price; 
 private Date pay_date; 
+private Date book_checkIn;
+private Date book_checkOut;
 private String pay_static;
 
-public int getPay_id() {
+public String getPay_id() {
 	return pay_id;
 }
-public void setPay_id(int pay_id) {
+public void setPay_id(String pay_id) {
 	this.pay_id = pay_id;
 }
 public int getUser_id() {
@@ -38,10 +40,10 @@ public int getRoom_id() {
 public void setRoom_id(int room_id) {
 	this.room_id = room_id;
 }
-public int getRoom_name() {
+public String getRoom_name() {
 	return room_name;
 }
-public void setRoom_name(int room_name) {
+public void setRoom_name(String room_name) {
 	this.room_name = room_name;
 }
 public String getBook_id() {
@@ -67,6 +69,18 @@ public Date getPay_date() {
 }
 public void setPay_date(Date pay_date) {
 	this.pay_date = pay_date;
+}
+public Date getBook_checkIn() {
+	return book_checkIn;
+}
+public void setBook_checkIn(Date book_checkIn) {
+	this.book_checkIn = book_checkIn;
+}
+public Date getBook_checkOut() {
+	return book_checkOut;
+}
+public void setBook_checkOut(Date book_checkOut) {
+	this.book_checkOut = book_checkOut;
 }
 public String getPay_static() {
 	return pay_static;

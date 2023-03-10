@@ -1,5 +1,9 @@
 package kr.co.haon.book.admin;
 
-public class BookAdminDAO {
+import java.util.List;
 
+import kr.co.haon.book.BookVO;
+
+public interface BookAdminDAO {
+	public List<BookVO> getBookListAdmin();
 }

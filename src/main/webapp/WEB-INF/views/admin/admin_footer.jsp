@@ -23,5 +23,6 @@
 	<script src="resources/js/demo/chart-book.js"></script>
 	<script src="resources/js/demo/chart-pay.js"></script>
 	
+	<script src="resources/js/adminList.js"></script>
 </body>
 </html>

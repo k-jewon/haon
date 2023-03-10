@@ -17,7 +17,7 @@ import kr.co.haon.room.client.RoomClientService;
 @Controller
 public class RoomAdminController {
 	
-	@Inject
+	  @Autowired
     private RoomAdminService service;
 	
 	@RequestMapping(value = "/adminRoomList", method = RequestMethod.GET)
@@ -25,10 +25,11 @@ public class RoomAdminController {
 		   return "admin/room/roomList";
 	   }
 
+
 	@RequestMapping(value = "/adminRoomInsertForm", method = RequestMethod.GET)
 		 public String adminRoomInsertForm() {
 			   return "admin/room/roomInsert";
-		   }
+	}
 	
 	@RequestMapping(value = "/adminRoomInsert", method = RequestMethod.POST)
 		public String adminRoomInsert(RoomVO rvo, HttpServletRequest httpServletRequest) throws Exception {

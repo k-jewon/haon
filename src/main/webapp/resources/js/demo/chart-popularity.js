@@ -22,8 +22,10 @@ const chartPopularity = new Chart(
       displayColors: false,
       caretPadding: 10,
     },
-    legend: {
-      display: false
-    },
+	plugins: {
+		legend: {
+			display: false
+			},
+	},
   },
 });
