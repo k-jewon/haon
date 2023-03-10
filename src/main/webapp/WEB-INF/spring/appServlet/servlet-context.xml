@@ -23,6 +23,15 @@
 	
 	<context:component-scan base-package="kr.co.haon" />
 	
+	<beans:bean id="AdminInterceptor" class="kr.co.haon.user.admin.UserAdminInterceptor"/>
 	
+	<interceptors>
+		<interceptor>
+		 	<mapping path="/admin/**"/>
+		 	<exclude-mapping path="/client" />
+		 	<exclude-mapping path="/resources/*"/>
+		 	<beans:ref bean="userAdminInterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>
