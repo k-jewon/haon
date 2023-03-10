@@ -6,4 +6,22 @@
 	<select id="getBookListAD" resultType="Book">
 		select * from haon_book
 	</select>
+	<select id="getSearchListAD" resultType="Book">
+		select * from haon_book
+		where 1 = 1
+		<choose>
+			<when test="type != null and type.equals('user_Id')">
+				and user_Id like concat('%', #{keyword}, '%')
+			</when>
+			<when test="type != null and type.equals('room_Id')">
+				and room_Id like concat('%', #{keyword}, '%')
+			</when>
+			<when test="type != null and type.equals('book_status')">
+				and book_status like concat('%', #{keyword}, '%')
+			</when>
+			<when test="type != null and type.equals('book_reserveDate')">
+				and book_reserveDate like concat('%', #{keyword}, '%')
+			</when>
+		</choose>
+	</select>
 </mapper>

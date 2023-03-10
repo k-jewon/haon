@@ -16,5 +16,10 @@ public class BookAdminServiceImpl implements BookAdminService{
 	public List<BookVO> getBookListAdmin() {
 		return bookAdminDAO.getBookListAdmin();
 	}
+	
+	@Override
+	public List<BookVO> getSearchList(BookVO vo) {
+		return bookAdminDAO.getSearchList(vo);
+	}
 
 }

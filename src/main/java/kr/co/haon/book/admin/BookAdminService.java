@@ -6,4 +6,5 @@ import kr.co.haon.book.BookVO;
 
 public interface BookAdminService {
 	public List<BookVO> getBookListAdmin();
+	public List<BookVO> getSearchList(BookVO vo);
 }

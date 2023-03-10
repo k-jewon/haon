@@ -44,38 +44,6 @@
 					<div class="card-body">
 						<div class="table-responsive">
 							<table class="table table-bordered reserveTable" id="bookSearchTable" width="100%" cellspacing="0">
-								<thead>
-									<tr>
-										<th>예약번호</th>
-										<th>객실명</th>
-										<th>예약자명</th>
-										<th>체크인</th>
-										<th>체크아웃</th>
-										<th>예약상태</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach var="list" items="${list }">
-										<tr>
-											<td>${list.book_Id }</td>
-											<td>${list.room_Id }</td>
-											<td>${list.user_Id }</td>
-											<td>${list.book_checkIn }</td>
-											<td>${list.book_checkOut }</td>
-											<td><c:choose>
-													<c:when test="${list.book_status == 0 }">
-													예약 취소												
-												</c:when>
-													<c:when test="${list.book_status == 1 }">
-													결제 대기중
-												</c:when>
-													<c:when test="${list.book_status == 2 }">
-													결제 완료
-												</c:when>
-												</c:choose></td>
-										</tr>
-									</c:forEach>
-								</tbody>
 							</table>
 						</div>
 					</div>
@@ -100,7 +68,7 @@ $(document).ready(function(){
 		        htmlString += '		<th/>가</th>		';
 		        htmlString += '		<th/>나</th>		';
 		        htmlString += '		<th/>다</th>		';
-		        htmlString += '		<th/>라</th>	';
+		        htmlString += '		<th/>라</th>	    ';
 		        htmlString += '		<th/>마</th>		';
 		        htmlString += "</tr>"
 		        for(var i = 0; i < data.list.length; i++) {
