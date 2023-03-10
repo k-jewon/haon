@@ -16,6 +16,11 @@ public class BookAdminDAOImpl implements BookAdminDAO{
 	
 	@Override
 	public List<BookVO> getBookListAdmin() {
-		return sst.selectList("kr.co.haon.book.admin.BookAdminDAO.getBookListAD", sst);
+		return sst.selectList("kr.co.haon.book.admin.BookAdminDAO.getBookListAD");
+	}
+	
+	@Override
+	public List<BookVO> getSearchList(BookVO vo) {
+		return sst.selectList("kr.co.haon.book.admin.BookAdminDAO.getSearchListAD", vo);
 	}
 }

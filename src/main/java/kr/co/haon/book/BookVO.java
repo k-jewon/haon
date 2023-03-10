@@ -16,6 +16,11 @@ public class BookVO {
 	private int book_hanbok;
 	private int book_breakfast;
 	private int book_plusperson;
+	
+	// 관리자 단 검색 기능 추가
+	private String type;
+	private String keyword;
+	
 	public int getBook_Id() {
 		return book_Id;
 	}
@@ -94,6 +99,21 @@ public class BookVO {
 	public void setBook_plusperson(int book_plusperson) {
 		this.book_plusperson = book_plusperson;
 	}
+	
+	// 검색 기능 setter, getter
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	
 	@Override
 	public String toString() {
 		return "BookVO [book_Id=" + book_Id + ", room_Id=" + room_Id + ", user_Id=" + user_Id + ", book_capacity="
