@@ -13,78 +13,42 @@
 			<li data-target="#myCarousel" data-slide-to="3"></li>
 		</ol>
 		<div class="carousel-inner">
+		<div style="background: #000000; background : rgba(0, 0, 0, 0.2);">
 			<div class="carousel-item active">
-				<svg class="" width="100%" height="100%"
-					xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  "
-					preserveAspectRatio="xMidYMid slice" focusable="false"
-					cursor="pointer">
-					<title>1번째 슬라이드</title><rect width="100%" height="100%" fill="#777" />
-					<text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
-
-				<div class="container">
-					<div class="carousel-caption text-left">
-						<h1>Example headline.</h1>
-						<p>Some representative placeholder content for the first slide
-							of the ca dsfdsfdsfffffffffffffffffrousel.</p>
-						<p>
-							<a class="btn btn-lg btn-primary" href="#">Sign up today</a>
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="carousel-item">
-				<svg class="bd-placeholder-img" width="100%" height="100%"
-					xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  "
-					preserveAspectRatio="xMidYMid slice" focusable="false"
-					cursor="pointer">
-					<title>2번째 슬라이드</title><rect width="100%" height="100%" fill="#777" />
-					<text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
-
+				<img src="resources/img/1.jpg" width="100%" height="100%" title="1번째 슬라이드">
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Another example headline.</h1>
-						<p>Some representative placeholder content for the second
-							slide of the carousel.</p>
-						<p>
-							<a class="btn btn-lg btn-primary" href="#">Learn more</a>
-						</p>
+						<h1>haon 홈페이지에 방문해주셔서 감사합니다.</h1>
+						<p>아늑하고 편안한 시설에서 특별함을 즐겨보세요.</p>
 					</div>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<svg class="bd-placeholder-img" width="100%" height="100%"
-					xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  "
-					preserveAspectRatio="xMidYMid slice" focusable="false"
-					cursor="pointer">
-					<title>3번째 슬라이드</title><rect width="100%" height="100%" fill="#777" />
-					<text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
-
+				<img src="resources/img/2.jpg" width="100%" height="100%" title="2번째 슬라이드"/>
 				<div class="container">
 					<div class="carousel-caption">
-						<h1>Another.</h1>
-						<p>Some representative placeholder content for the second
-							slide of the carousel.</p>
-						<p>
-							<a class="btn btn-lg btn-primary" href="#">Learn more</a>
-						</p>
+						<h1>한옥 감성으로 입혀진 haon</h1>
+						<p>가끔은 어디론가 훌쩍 떠나고 싶은 마음이 드신다면 힐링을 느껴보세요.</p>
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="carousel-item">
+				<img src="resources/img/3.jpg" width="100%" height="100%" title="1번째 슬라이드"/>
+				<div class="container">
+					<div class="carousel-caption">
+						<h1>바쁜 일상을 벗어나 잔잔한 곳을 찾고 계시지는 않나요?</h1>
+						<p>한옥만이 줄 수 있는 평온함을 만끽해보세요.</p>
 					</div>
 				</div>
 			</div>
 			<div class="carousel-item">
-				<svg class="bd-placeholder-img" width="100%" height="100%"
-					xmlns="http://www.w3.org/2000/svg" role="img" aria-label=" :  "
-					preserveAspectRatio="xMidYMid slice" focusable="false"
-					cursor="pointer">
-					<title>4번째 슬라이드</title><rect width="100%" height="100%" fill="#777" />
-					<text x="50%" y="50%" fill="#777" dy=".3em"> </text></svg>
+				<img src="resources/img/4.jpg" width="100%" height="100%" title="4번째 슬라이드"/>
+					<text x="50%" y="50%" fill="#777" dy=".3em"> </text>
 				<div class="container">
-					<div class="carousel-caption text-right">
-						<h1>One more for good measure.</h1>
-						<p>Some representative placeholder content for the third slide
-							of this carousel.</p>
-						<p>
-							<a class="btn btn-lg btn-primary" href="#">Browse gallery</a>
-						</p>
+					<div class="carousel-caption">
+						<h1>잠시 쉬고싶을때, 그럴때 있잖아요.</h1>
+						<p>haon에서 행복한 추억을 담아가세요.</p>
 					</div>
 				</div>
 			</div>
@@ -117,19 +81,19 @@
 					<title>무궁화 자세히 보기</title><rect width="100%" height="100%"
 						fill="#777" />
 					<text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-        <a href="Room1List.do"></a>
+        <a href="/RoomList1"></a>
         </svg>
 
 				<h2>
-					<a href="Room1List.do" cursor="pointer">Heading
+					<a href="/RoomList1" cursor="pointer">무궁화
 				</h2>
 				<p class='main_list'>
-					<a href="/Room1List.do" cursor="pointer">Some representative
-						placeholder content for the three columns of text below the
-						carousel. This is the first column.
+					<a href="/RoomList1" cursor="pointer">
+					2인실로 적합합니다.
+					</a>
 				</p>
 				<p>
-					<a class="btn btn-secondary" href="/Room1List.do"
+					<a class="btn btn-secondary" href="/RoomList1"
 						title="무궁화 자세히 보기">View details &raquo;</a>
 				</p>
 			</div>
@@ -143,17 +107,18 @@
 					<title>소나무 자세히 보기</title><rect width="100%" height="100%"
 						fill="#777" />
 					<text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-        <a href="Room2List.do"></a>
+        <a href="/RoomList2"></a>
         </svg>
 
 				<h2>
-					<a href="Room2List.do" cursor="pointer">Heading
+					<a href="/RoomList2" cursor="pointer">소나무
 				</h2>
-				<p class='main_list'>Another exciting bit of representative
-					placeholder content. This time, we've moved on to the second
-					column.</p>
+				<p class='main_list'>
+				<a href="/RoomList2" cursor="pointer">
+					4인실로 적합합니다.
+					</a></p>
 				<p>
-					<a class="btn btn-secondary" href="/Room2List.do"
+					<a class="btn btn-secondary" href="/RoomList2"
 						title="Room2 자세히 보기">View details &raquo;</a>
 				</p>
 			</div>
@@ -167,18 +132,19 @@
 					<title>사랑채 자세히 보기</title><rect width="100%" height="100%"
 						fill="#777" />
 					<text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-        <a href="Room3List.do"></a>
+        <a href="/RoomList3"></a>
         </svg>
 
 				<h2>
-					<a href="/Room3List.do" cursor="pointer">Heading</a>
+					<a href="/RoomList3" cursor="pointer">사랑채</a>
 				</h2>
 				<p class='main_list'>
-					<a href="/Room3List.do" cursor="pointer">And lastly this, the
-						third column of representative placeholder content.</a>
+					<a href="/RoomList3" cursor="pointer">
+					스위트룸 입니다.
+						</a>
 				</p>
 				<p>
-					<a class="btn btn-secondary" href="/Room3List.do"
+					<a class="btn btn-secondary" href="/RoomList3"
 						title="Room3 자세히 보기" cursor="pointer">View details &raquo;</a>
 				</p>
 			</div>
@@ -193,17 +159,18 @@
 					<title>백두산 자세히 보기</title><rect width="100%" height="100%"
 						fill="#777" />
 					<text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-        <a href="Room4List.do"></a>
+        <a href="/RoomList4"></a>
         </svg>
 
 				<h2>
-					<a href="Room4List.do" cursor="pointer">Heading
+					<a href="/RoomList4" cursor="pointer">백두산
 				</h2>
-				<p class='main_list'>Some representative placeholder content for
-					the three columns of text below the carousel. This is the first
-					column.</p>
+				<p class='main_list'>
+				<a href="/RoomList4" cursor="pointer">
+					단체예약 전용입니다.
+						</a></p>
 				<p>
-					<a class="btn btn-secondary" href="/Room4List.do"
+					<a class="btn btn-secondary" href="/RoomList4"
 						title="Room4 자세히 보기">View details &raquo;</a>
 				</p>
 			</div>
