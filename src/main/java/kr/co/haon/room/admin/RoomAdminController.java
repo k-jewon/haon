@@ -5,6 +5,7 @@ import java.io.File;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +18,7 @@ import kr.co.haon.room.client.RoomClientService;
 @Controller
 public class RoomAdminController {
 	
-	  @Autowired
+	@Autowired
     private RoomAdminService service;
 	
 	@RequestMapping(value = "/adminRoomList", method = RequestMethod.GET)
