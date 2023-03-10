@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
  <jsp:include page="/WEB-INF/views/client/header.jsp" />
 
     <div class="container my-5">
@@ -60,27 +60,4 @@
         </div>
 
     </div>
-    <c:if test="${message != null}">
-	<div class="modal fade show d-block" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLiveLabel">로그인 오류</h5>
-	      </div>
-	      <div class="modal-body">
-	        <p>${message}</p>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" id="modalClose" data-bs-dismiss="modal">확인</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	</c:if>
-	<script>
-
-	document.getElementById("modalClose").addEventListener("click", function(event){
-		  $('.modal').removeClass('show d-block');
-	});
-	</script>
     <jsp:include page="/WEB-INF/views/client/footer.jsp" />

@@ -9,7 +9,7 @@ public class UserVO {
 	private String user_phone;
 	private String user_gender;
 	private String user_name;
-	private Date user_birth;
+	private String user_birth;
 	private Date user_date;
 	private String user_addr1;
 	private String user_addr2;
@@ -51,10 +51,10 @@ public class UserVO {
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
-	public Date getUser_birth() {
+	public String getUser_birth() {
 		return user_birth;
 	}
-	public void setUser_birth(Date user_birth) {
+	public void setUser_birth(String user_birth) {
 		this.user_birth = user_birth;
 	}
 	public Date getUser_date() {

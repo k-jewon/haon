@@ -1,5 +1,11 @@
 package kr.co.haon.pay.client;
 
-public class PayClientService {
+import java.util.List;
 
+import kr.co.haon.pay.PayVO;
+
+public interface PayClientService {
+	List<PayVO> mypayList(PayVO pvo);
+	
+	void paySucceed(PayVO pvo);
 }
