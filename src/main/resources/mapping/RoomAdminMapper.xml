@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.haon.room.admin.RoomAdminDAO">
-	<insert id="RoomReg">
-		INSERT INTO HAON_ROOM (ROOM_NAME, ROOM_PRICE, ROOM_DESC, ROOM_IMAGE) VALUES('${room_name}',${room_Price},'${room_Desc}','${room_Image}')
-	</insert>
+   <insert id="RoomReg" parameterType="Room">
+      INSERT INTO HAON_ROOM (room_name, room_type, room_price, room_desc) 
+      VALUES(#{room_name}, #{room_type}, #{room_price}, #{room_desc})
+   </insert>
+   <select id="getRoomList" resultType="Room">
+         SELECT room_id, room_name, room_type, room_price, room_desc FROM haon_room;
+   </select>
 </mapper>

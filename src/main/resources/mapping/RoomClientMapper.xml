@@ -3,18 +3,18 @@
 <mapper namespace="kr.co.haon.room.client.RoomClientDAO">
 
 <select id="Room1" resultType="Room">
-	SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '무궁화%'
+   SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '무궁화%'
 </select>
 <select id="Room2" resultType="Room">
-	SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '소나무%'
+   SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '소나무%'
 </select>
 <select id="Room3" resultType="Room">
-	SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '사랑채%'
+   SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '사랑채%'
 </select>
 <select id="Room4" resultType="Room">
-	SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '백두산%'
+   SELECT * FROM HAON_ROOM WHERE ROOM_NAME LIKE '백두산%'
 </select>
 <select id="GetRoom" resultType="Room">
-	SELECT * FROM HAON_ROOM WHERE ROOM_NAME = '${room_name}';
+   SELECT * FROM HAON_ROOM WHERE ROOM_NAME = #{room_name} AND ROOM_TYPE = #{room_type}
 </select>
 </mapper>
