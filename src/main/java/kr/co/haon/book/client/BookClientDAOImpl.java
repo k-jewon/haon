@@ -25,9 +25,9 @@ public class BookClientDAOImpl implements BookClientDAO{
 	}
 	
 	@Override
-	public void updateOne(int book_Id) {
+	public void updateOne(int book_id) {
 		System.out.println("업데이트 전");
-		sst.update("kr.co.haon.book.client.BookClientDAO.updateBook",book_Id);
+		sst.update("kr.co.haon.book.client.BookClientDAO.updateBook",book_id);
 		System.out.println("업데이트 후");
 	}
 }

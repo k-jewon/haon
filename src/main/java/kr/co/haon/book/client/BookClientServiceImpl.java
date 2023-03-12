@@ -24,7 +24,7 @@ public class BookClientServiceImpl implements BookClientService{
 	}
 	
 	@Override
-	public void updateOne(int book_Id) {
-		bookDAO.updateOne(book_Id);
+	public void updateOne(int book_id) {
+		bookDAO.updateOne(book_id);
 	}
 }

@@ -6,13 +6,13 @@
 	  
   	<insert id="insertBook" parameterType="Book">
   		insert into haon_book (book_id, room_id, user_id, book_price, book_capacity, book_reservedate, book_checkin, book_checkout, book_more, book_status, book_hanbok, book_breakfast, book_plusperson)
-  		values(null,#{room_Id},#{user_Id},#{book_price},2,now(),#{book_checkIn},#{book_checkOut},#{book_more},1,#{book_hanbok},#{book_breakfast},#{book_plusperson})
+  		values(null,#{room_id},#{user_id},#{book_price},2,now(),#{book_checkIn},#{book_checkOut},#{book_more},1,#{book_hanbok},#{book_breakfast},#{book_plusperson})
   	</insert>
   	
   	<select id="getBookList" resultType="Book">
   		select * from haon_book order by book_id desc
   	</select>
   	<update id="updateBook">
-  		update haon_book set book_status = 0 where book_Id = #{book_Id}
+  		update haon_book set book_status = 0 where book_Id = #{book_id}
   	</update>
   </mapper>
