@@ -10,13 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-import kr.co.haon.pay.client.PayClientService;
+
 import kr.co.haon.pay.PayVO;
 
 @Controller
@@ -30,8 +31,9 @@ public class PayClientController {
 	private KakaoApproveVO kakaoa;
 	private KakaoCancelVO kakaoc;
 	
-	@RequestMapping(value = "/payform", method = RequestMethod.GET)
-	public String payForm(Model model) {
+	@RequestMapping(value = "/payform/{book_id}", method = RequestMethod.GET)
+	public String payForm(Model model, PayVO pvo, @PathVariable String book_id) {
+		model.addAttribute("payinfo", pcservice.payInfo(pvo));
 		return "client/pay/payForm";
 	}
 	
@@ -46,7 +48,7 @@ public class PayClientController {
 	}
 	
 	@RequestMapping(value = "/kakaopay", method = RequestMethod.POST)
-	public String kakaoP(Model model) {
+	public String kakaoP() {
 		return "redirect:" + kakaoPay();
 	}
 	
@@ -58,11 +60,11 @@ public class PayClientController {
 		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("cid", "TC0ONETIME");
-		params.add("partner_order_id", "1");
-		params.add("partner_user_id", "1");
-		params.add("item_name", "백두산");
+		params.add("partner_order_id", "");
+		params.add("partner_user_id", "");
+		params.add("item_name", "");
 		params.add("quantity", "1");
-		params.add("total_amount", "3000000");
+		params.add("total_amount", "");
 		params.add("tax_free_amount", "0");
 		params.add("approval_url", "http://localhost:8080/kakaopaysuccess");
 		params.add("cancel_url", "http://localhost:8080/paycancel");
@@ -99,10 +101,10 @@ public class PayClientController {
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("cid", "TC0ONETIME");
 		params.add("tid", kakaor.getTid());
-		params.add("partner_order_id", "1");
-		params.add("partner_user_id", "1");
+		params.add("partner_order_id", "");
+		params.add("partner_user_id", "");
 		params.add("pg_token", pg_token);
-		params.add("total_amount", "3000000");
+		params.add("total_amount", "");
 		
 		HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 		try {
@@ -111,10 +113,10 @@ public class PayClientController {
             pvo.setUser_id(Integer.parseInt(kakaoa.getPartner_user_id()));
             pvo.setPay_id(kakaoa.getTid());
             pvo.setRoom_name(kakaoa.getItem_name());
-            pvo.setBook_id(kakaoa.getPartner_order_id());
-            pvo.setUser_name("이미영");
+            pvo.setBook_id(Integer.parseInt(kakaoa.getPartner_order_id()));
+            pvo.setUser_name("");
             pvo.setPay_payment(1);
-            pvo.setPay_price(kakaoa.getAmount().getTotal());
+            pvo.setBook_price(kakaoa.getAmount().getTotal());
             pcservice.paySucceed(pvo);
             
             return kakaoa;

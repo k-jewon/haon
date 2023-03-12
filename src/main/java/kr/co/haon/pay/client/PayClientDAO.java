@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.haon.book.BookVO;
 import kr.co.haon.pay.PayVO;
 
 @Repository
@@ -19,5 +20,9 @@ public class PayClientDAO {
 	
 	public void paySucceed(PayVO pvo) {
 		mybatis.insert("kr.co.haon.pay.client.PayClientDAO.paySucceed", pvo);
+	}
+	
+	public PayVO payInfo(PayVO pvo) {
+		return mybatis.selectOne("kr.co.haon.pay.client.PayClientDAO.payInfo", pvo);
 	}
 }

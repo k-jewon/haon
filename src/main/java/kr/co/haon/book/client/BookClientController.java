@@ -17,7 +17,7 @@ public class BookClientController {
 	@Autowired
 	BookClientService bcs;
 	
-	@RequestMapping(value = "/bookForm.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookForm", method = RequestMethod.GET)
 	public String bookForm() {
 		
 		return "client/book/bookForm";
@@ -29,10 +29,10 @@ public class BookClientController {
 		
 //		model.addAttribute("success", "예약이 완료되었습니다.");
 
-		return "redirect:/bookList.do";
+		return "redirect:/bookList";
 	}
 	
-	@RequestMapping(value = "/bookList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookList", method = RequestMethod.GET)
 	public String getList(Model model) {
 		
 		List<BookVO> list = bcs.getBookList();
@@ -42,12 +42,12 @@ public class BookClientController {
 		return "client/book/bookList";
 	}
 	
-	@RequestMapping(value = "/bookUpdate.do", method = RequestMethod.POST)
-	public String updateBook(int book_Id, Model model) {
+	@RequestMapping(value = "/bookUpdate", method = RequestMethod.POST)
+	public String updateBook(int book_id, Model model) {
 		
-		System.out.println("book_Id : " + book_Id);
-		bcs.updateOne(book_Id);
+		System.out.println("book_id : " + book_id);
+		bcs.updateOne(book_id);
 		
-		return "redirect:/bookList.do";
+		return "redirect:/bookList";
 	}
 }
