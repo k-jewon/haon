@@ -29,7 +29,9 @@ $(document).ready(function(){
 										<div
 											class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 											오늘 예약자 수</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">4 건</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">
+										<%-- <c:out value="${todaySubscriber}" /> --%>
+										 건</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -176,8 +178,8 @@ $(document).ready(function(){
 										class="fas fa-circle text-success"></i> 소나무
 									</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
 										사랑채
-									</span><span class="mr-2"><i class="fas fa-circle text-success1"></i>
-										백두산 </span>
+									</span><span class="mr-2"><i
+										class="fas fa-circle text-success1"></i> 백두산 </span>
 								</div>
 							</div>
 						</div>
@@ -203,8 +205,8 @@ $(document).ready(function(){
 										class="fas fa-circle text-success"></i> 소나무
 									</span> <span class="mr-2"> <i class="fas fa-circle text-info"></i>
 										사랑채
-									</span><span class="mr-2"><i class="fas fa-circle text-success1"></i>
-										백두산 </span>
+									</span><span class="mr-2"><i
+										class="fas fa-circle text-success1"></i> 백두산 </span>
 								</div>
 							</div>
 						</div>
@@ -214,4 +216,14 @@ $(document).ready(function(){
 		</div>
 	</div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- 차트 데이터 -->
+<script src="resources/js/demo/chart-popularity.js"></script>
+<script src="resources/js/demo/chart-recommend.js"></script>
+<script src="resources/js/demo/chart-user.js"></script>
+<script src="resources/js/demo/chart-book.js"></script>
+<script src="resources/js/demo/chart-pay.js"></script>
 <jsp:include page="/WEB-INF/views/admin/admin_footer.jsp" />

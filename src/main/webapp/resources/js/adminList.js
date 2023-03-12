@@ -2,20 +2,20 @@
  * 
  */
  
-function payUpdate() {
+function payUpdate(pay_id) {
 
 	if(confirm("결제를 취소하시겠습니까?")){
-	                alert("결제 취소되었습니다.");
-	            }else{  
-	            }
+	      alert("결제 취소되었습니다.");
+	      location.href='/admin/adminPayUpdate/'+pay_id;
+	}else{  
+	}
 }
 
-function paydelete() {
-  	if(confirm("결제 정보를 영구 삭제하시겠습니까?")){
-	       confirm("삭제되었습니다.");
+function payDelete(pay_id) {
+
+	if(confirm("결제 정보를 영구 삭제하시겠습니까?")){
+	     alert("삭제 되었습니다.");
+	     location.href='/admin/adminPayDelete/'+pay_id;
+	}else{  
 	}
-	//if else(pay_static==='결제취소') {  
-	//       confirm("결제 취소 후 삭제해 주세요");
- 	//}
-	 
 }

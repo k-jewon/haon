@@ -1,5 +1,7 @@
 package kr.co.haon.index.admin;
 
-public interface IndexAdminDAO {
+import kr.co.haon.pay.PayVO;
 
+public interface IndexAdminDAO {
+	public int todaySubscriber();
 }
