@@ -10,5 +10,5 @@ public interface BookClientDAO {
 	
 	public List<BookVO> getBookList();
 	
-	public void updateOne(int book_Id);
+	public void updateOne(int book_id);
 }

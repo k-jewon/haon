@@ -8,13 +8,16 @@ private int user_id;
 private String user_name;
 private int room_id;
 private String room_name; 
-private String book_id; 
+private int book_id; 
 private int pay_payment;
-private int pay_price; 
+private int book_price; 
 private Date pay_date; 
 private Date book_checkIn;
 private Date book_checkOut;
 private String pay_static;
+private int book_hanbok;
+private int book_breakfast;
+private int book_plusperson;
 
 public String getPay_id() {
 	return pay_id;
@@ -46,10 +49,10 @@ public String getRoom_name() {
 public void setRoom_name(String room_name) {
 	this.room_name = room_name;
 }
-public String getBook_id() {
+public int getBook_id() {
 	return book_id;
 }
-public void setBook_id(String book_id) {
+public void setBook_id(int book_id) {
 	this.book_id = book_id;
 }
 public int getPay_payment() {
@@ -58,11 +61,11 @@ public int getPay_payment() {
 public void setPay_payment(int pay_payment) {
 	this.pay_payment = pay_payment;
 }
-public int getPay_price() {
-	return pay_price;
+public int getBook_price() {
+	return book_price;
 }
-public void setPay_price(int pay_price) {
-	this.pay_price = pay_price;
+public void setBook_price(int book_price) {
+	this.book_price = book_price;
 }
 public Date getPay_date() {
 	return pay_date;
@@ -87,6 +90,24 @@ public String getPay_static() {
 }
 public void setPay_static(String pay_static) {
 	this.pay_static = pay_static;
+}
+public int getBook_hanbok() {
+	return book_hanbok;
+}
+public void setBook_hanbok(int book_hanbok) {
+	this.book_hanbok = book_hanbok;
+}
+public int getBook_breakfast() {
+	return book_breakfast;
+}
+public void setBook_breakfast(int book_breakfast) {
+	this.book_breakfast = book_breakfast;
+}
+public int getBook_plusperson() {
+	return book_plusperson;
+}
+public void setBook_plusperson(int book_plusperson) {
+	this.book_plusperson = book_plusperson;
 }
 
 }

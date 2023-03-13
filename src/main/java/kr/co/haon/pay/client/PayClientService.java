@@ -8,4 +8,6 @@ public interface PayClientService {
 	List<PayVO> mypayList(PayVO pvo);
 	
 	void paySucceed(PayVO pvo);
+	
+	PayVO payInfo(PayVO pvo);
 }

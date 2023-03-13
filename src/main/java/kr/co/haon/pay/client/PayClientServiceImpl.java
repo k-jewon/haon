@@ -21,5 +21,10 @@ public class PayClientServiceImpl implements PayClientService {
 	public void paySucceed(PayVO pvo) {
 		pcdao.paySucceed(pvo);
 	}
+	
+	@Override
+	public PayVO payInfo(PayVO pvo) {
+		return pcdao.payInfo(pvo);
+	}
 
 }

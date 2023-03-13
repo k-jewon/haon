@@ -59,7 +59,7 @@ public class RoomClientController {
    }
    
    @RequestMapping("/getRoom/{room_name}/{room_type}")
-   public String GetRoom(RoomVO vo, Model model, @PathVariable String room_name, @PathVariable String room_type) throws Exception{
+   public String GetRoom(RoomVO vo, Model model,  String room_name, String room_type) throws Exception{
 	  RoomVO room = service.getRoom(vo);
 	  model.addAttribute("room", room);
       System.out.println(service.getRoom(vo));

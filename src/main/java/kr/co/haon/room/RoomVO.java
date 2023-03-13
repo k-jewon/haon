@@ -1,8 +1,7 @@
 package kr.co.haon.room;
 
-import org.springframework.web.multipart.MultipartFile;
-
 public class RoomVO {
+
 	private String room_id;
 	private String room_name;
 	private String room_type;
@@ -49,6 +48,5 @@ public class RoomVO {
 	public String toString() {
 		return "RoomVO [room_id=" + room_id + ", room_name=" + room_name + ", room_type=" + room_type + ", room_price="
 				+ room_price + ", room_desc=" + room_desc + ", room_image=" + room_image + "]";
-	}
-	
+	}	
 }

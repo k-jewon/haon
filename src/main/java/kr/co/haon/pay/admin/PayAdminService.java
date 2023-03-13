@@ -1,5 +1,13 @@
 package kr.co.haon.pay.admin;
 
-public class PayAdminService {
+import java.util.List;
 
+import kr.co.haon.pay.PayVO;
+
+public interface PayAdminService {
+	public List<PayVO> getPayList();
+	
+	public void updatePayStatic(String pay_id);
+	
+	public void deletePay(String pay_id);
 }

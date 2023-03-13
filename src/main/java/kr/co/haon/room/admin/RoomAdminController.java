@@ -11,7 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.multipart.MultipartFile;
+
 
 import kr.co.haon.room.RoomVO;
 
@@ -42,6 +44,7 @@ public class RoomAdminController {
          String room_type = httpServletRequest.getParameter("room_type");
          int room_price = Integer.parseInt(httpServletRequest.getParameter("room_price"));
          String room_desc = httpServletRequest.getParameter("room_desc");;
+         String room_image = httpServletRequest.getParameter("room_image");
          rvo.setRoom_name(room_name);
          rvo.setRoom_type(room_type);
          rvo.setRoom_price(room_price);
@@ -55,4 +58,5 @@ public class RoomAdminController {
 	   }
 	   return "redirect:/adminRoomList";
    }
+
 }

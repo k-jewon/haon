@@ -11,10 +11,10 @@
 		where 1 = 1
 		<choose>
 			<when test="type != null and type.equals('user_Id')">
-				and user_Id like concat('%', #{keyword}, '%')
+				and user_id like concat('%', #{keyword}, '%')
 			</when>
 			<when test="type != null and type.equals('room_Id')">
-				and room_Id like concat('%', #{keyword}, '%')
+				and room_id like concat('%', #{keyword}, '%')
 			</when>
 			<when test="type != null and type.equals('book_status')">
 				and book_status like concat('%', #{keyword}, '%')
