@@ -1,13 +1,5 @@
 @charset "UTF-8";
 
-div.container-fluid {
-	padding-top: 70px;
-}
-
-#content {
-	height: 100vh;
-}
-
 .bd-placeholder-img {
 	font-size: 1.125rem;
 	text-anchor: middle;
@@ -81,8 +73,13 @@ a:visited {
 	height: 50px;
 	padding: 0 1rem !important;
 }
+.container-fluid {
+	padding-top: 70px;
+}
 
-
+#content {
+	height: 100vh;
+}
 
 .text-success1 {
 	color: #c6ea82 !important
@@ -100,4 +97,8 @@ footer.sticky-footer .copyright {
 .navbar-nav .nav-item{
 	display: flex;
 	align-items: center;
+}
+
+.form-control option[value=""][disabled] {
+	display: none;
 }

@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.haon.user.UserVO;
 
@@ -18,6 +19,7 @@ public class UserAdminInterceptor extends HandlerInterceptorAdapter {
 	
 	static final String[] EXCLUDE_URL_LIST = { "/adminlogin", "/admin"};
 	
+	RedirectAttributes rattr;
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -30,7 +32,8 @@ public class UserAdminInterceptor extends HandlerInterceptorAdapter {
 	            return true;
 	         }
 	      }
-		
+	      
+	      
 		logger.debug("==================== LoggerInterceptor START ====================");
 		HttpSession session = request.getSession();
 		UserVO admin = (UserVO) session.getAttribute("login_info");
@@ -41,10 +44,16 @@ public class UserAdminInterceptor extends HandlerInterceptorAdapter {
 
 		if (admin == null) {
 			logger.info(">> interceptor preHandle catch!! user_admin is null..");
-			response.sendRedirect("/haon/adminlogin");
+			
+			String messageTitle = "로그인 오류";
+			String message = "고객계정인 경우 고객페이지에서 이용 바랍니다.";
+			rattr.addFlashAttribute("message", message);
+			rattr.addFlashAttribute("messageTitle", messageTitle);
+			
+			response.sendRedirect("/adminlogin");
 			return false;
 		} else if (admin.getUser_admin() != 1) {
-			response.sendRedirect("/haon/client");
+			response.sendRedirect("/");
 			return false;
 		} else {
 			return true;
@@ -66,7 +75,7 @@ public class UserAdminInterceptor extends HandlerInterceptorAdapter {
 			logger.info(">> interceptor postHandle catch!! user_admin is null..");
 			modelAndView.setViewName("redirect:/adminlogin");
 		} else if (admin.getUser_admin() != 1) {
-			modelAndView.setViewName("redirect:/client");
+			modelAndView.setViewName("redirect:/client/login");
 		}
 	}
 }
