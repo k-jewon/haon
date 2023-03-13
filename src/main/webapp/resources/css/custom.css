@@ -98,3 +98,7 @@ footer.sticky-footer .copyright {
 	display: flex;
 	align-items: center;
 }
+
+.form-control option[value=""][disabled] {
+	display: none;
+}

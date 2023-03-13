@@ -21,7 +21,7 @@
 <body id="page-top">
 	<nav
 		class="navbar navbar-expand-xl navbar-dark bg-dark navbar fixed-top">
-		<a class="navbar-brand" href="/adminIndex">haon</a>
+		<a class="navbar-brand" href="/haon/admin">haon</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarsExample04" aria-controls="navbarsExample04"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -31,9 +31,9 @@
 		<div class="collapse navbar-collapse" id="navbarsExample04">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item ml-5" id="nav1"><a class="nav-link"
-					href="/adminIndex">통계</a></li>
+					href="/admin">통계</a></li>
 				<li class="nav-item ml-5" id="nav2"><a class="nav-link"
-					href="/adminUserList">회원관리</a></li>
+					href="/admin/adminUserList">회원관리</a></li>
 				<li class="nav-item ml-5" id="nav3"><a class="nav-link"
 					href="/adminBookList">예약관리</a></li>
 				<li class="nav-item ml-5" id="nav4"><a class="nav-link"
@@ -42,7 +42,7 @@
 					href="/adminPayList">결제관리</a></li>
 				<li class="nav-item ml-5"><a class="nav-link" href="#">고객페이지로
 						이동</a></li>
-				<li class="nav-item ml-5"><a class="nav-link" href="#">로그아웃</a></li>
+				<li class="nav-item ml-5"><a class="nav-link" href="/admin/logout">로그아웃</a></li>
 			</ul>
 		</div>
 	</nav>
