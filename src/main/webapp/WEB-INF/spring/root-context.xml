@@ -49,10 +49,30 @@
       <constructor-arg ref="sqlSessionFactory" />
    </bean>
 
+
 	<!-- 파일 업로드 설정 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="100000"></property>
 	</bean>
+
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="haon6project@gmail.com" /> <!-- 자신의 이메일 아이디 -->
+		<property name="password" value="npqhntuwittmsacc" /> <!-- 자신의 비밀번호 -->
+		<!-- 보안연결 TLS과 관련된 설정 -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+			</props>
+		</property>
+	</bean>
+
+
 <!-- 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
 			<tx:method name="get*" read-only="true" />
