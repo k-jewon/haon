@@ -3,27 +3,59 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.haon.index.admin.IndexAdminDAO">
-   <select id="todaySubscriber" resultType="kr.co.haon.pay.PayVO">
-      SELECT COUNT(pay_id) 
-      FROM haon_pay 
-      WHERE DATE_FORMAT(pay_date, "%Y-%m-%d") = CURDATE();
-   </select>
-   <select id="todaySales" resultType="kr.co.haon.pay.PayVO">
-      SELECT SUM(pay_price)
-	  FROM haon_pay
-	  WHERE DATE_FORMAT(pay_date, "%Y-%m-%d") = CURDATE();
-   </select>
-   <select id="allSales" resultType="kr.co.haon.pay.PayVO">
-      SELECT SUM(pay_price)
-	  FROM haon_pay;
-   </select>
-   <select id="allMember" resultType="kr.co.haon.user.UserVO">
-      SELECT COUNT(user_id) FROM haon_user;
-   </select>
-   
-   <select id="newMember" resultType="kr.co.haon.user.UserVO">
-      SELECT user_id, MONTH(user_date) FROM haon_user
-	  WHERE user_date BETWEEN '2022-10-01' AND NOW()
-	  ORDER BY user_date DESC;
-   </select>
+	<select id="todayBook" resultType="int">
+		SELECT COUNT(pay_id)
+		FROM haon_pay
+		WHERE DATE_FORMAT(pay_date, "%Y-%m-%d") = CURDATE();
+	</select>
+	<select id="todaySales" resultType="String">
+		SELECT FORMAT(SUM(book_price),0)
+		FROM haon_pay
+		WHERE DATE_FORMAT(pay_date, "%Y-%m-%d") = CURDATE();
+	</select>
+	<select id="allSales" resultType="String">
+		SELECT FORMAT(SUM(book_price),0)
+		FROM haon_pay;
+	</select>
+	<select id="allUser" resultType="int">
+		SELECT COUNT(user_id) FROM haon_user;
+	</select>
+
+	<select id="chartUser" resultType="map">
+		SELECT MONTH(user_date) month, COUNT(user_id) num FROM haon_user
+		WHERE user_date BETWEEN DATE_ADD(NOW(), INTERVAL -6 MONTH) AND NOW()
+		GROUP BY MONTH(user_date)
+		ORDER BY user_date DESC;
+	</select>
+	<select id="chartBook" resultType="kr.co.haon.index.ChartBookVO">
+		SELECT MONTH(pay_date) month, COUNT(pay_id) b_num FROM haon_pay
+		WHERE pay_date BETWEEN DATE_ADD(NOW(), INTERVAL -6 MONTH) AND NOW()
+		GROUP BY MONTH(pay_date)
+		ORDER BY pay_date DESC;
+	</select>
+	<select id="chartSales" resultType="Pay">
+		SELECT MONTH(pay_date), FORMAT(SUM(book_price),0) FROM haon_pay
+		WHERE pay_date BETWEEN DATE_ADD(NOW(), INTERVAL -6 MONTH) AND NOW()
+		GROUP BY MONTH(pay_date)
+		ORDER BY pay_date DESC;
+	</select>
+	<select id="popularRoom" resultType="Room">
+		SELECT room_name, count(room_name)
+		FROM haon_book b
+		JOIN haon_room r
+		ON b.room_id=r.room_id
+		GROUP BY room_name
+		ORDER BY
+		count(room_name) DESC;
+	</select>
+	<select id="recommendedRoom" resultType="Room">
+		SELECT room_name,
+		count(room_name)
+		FROM haon_pay p
+		JOIN haon_room r
+		ON p.room_id=r.room_id
+		GROUP BY r.room_name
+		ORDER BY
+		count(room_name) DESC;
+	</select>
 </mapper>
