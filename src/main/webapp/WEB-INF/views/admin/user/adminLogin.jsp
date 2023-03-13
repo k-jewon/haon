@@ -38,7 +38,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">haon 관리자 페이지</h1>
                                     </div>
-                                    <form class="user" method="post" action="/haon/admin">
+                                    <form class="user" method="post" action="/admin">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="user_email"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"

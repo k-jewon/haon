@@ -30,8 +30,7 @@ $(document).ready(function(){
 											class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 											오늘 예약자 수</div>
 										<div class="h5 mb-0 font-weight-bold text-gray-800">
-										<%-- <c:out value="${todaySubscriber}" /> --%>
-										 건</div>
+											 ${todayBook} 건</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -50,8 +49,8 @@ $(document).ready(function(){
 										<div
 											class="text-xs font-weight-bold text-success text-uppercase mb-1">
 											오늘 매출액</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">200,000
-											원</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">
+											${todaySales} 원</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -72,8 +71,8 @@ $(document).ready(function(){
 											고객 수</div>
 										<div class="row no-gutters align-items-center">
 											<div class="col-auto">
-												<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">100
-													명</div>
+												<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">
+													${allUser} 명</div>
 											</div>
 										</div>
 									</div>
@@ -94,8 +93,8 @@ $(document).ready(function(){
 										<div
 											class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 											총 매출액</div>
-										<div class="h5 mb-0 font-weight-bold text-gray-800">1,723,325
-											원</div>
+										<div class="h5 mb-0 font-weight-bold text-gray-800">
+											${allSales} 원</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
