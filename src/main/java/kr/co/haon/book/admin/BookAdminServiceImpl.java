@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.haon.book.BookVO;
+import kr.co.haon.book.Criteria;
 
 @Service
 public class BookAdminServiceImpl implements BookAdminService{
@@ -20,6 +21,11 @@ public class BookAdminServiceImpl implements BookAdminService{
 	@Override
 	public List<BookVO> getSearchList(BookVO vo) {
 		return bookAdminDAO.getSearchList(vo);
+	}
+	
+	@Override
+	public List<BookVO> getListPaging(Criteria cri) {
+		return bookAdminDAO.getListPaging(cri);
 	}
 
 }

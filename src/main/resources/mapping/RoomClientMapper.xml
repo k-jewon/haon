@@ -17,4 +17,7 @@
 <select id="GetRoom" resultType="Room">
    SELECT * FROM HAON_ROOM WHERE ROOM_NAME = #{room_name} AND ROOM_TYPE = #{room_type}
 </select>
+<select id="getRoomByRoomID" resultType="Room">
+	select * from haon_room where room_id = #{room_id}
+</select>
 </mapper>
