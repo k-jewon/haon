@@ -24,4 +24,12 @@
 			</when>
 		</choose>
 	</select>
+	
+	<select id="getListPaging" resultType="Book">
+		select * from 
+		(select book_id, room_id, user_id, book_price, book_capacity, book_reservedate, book_checkin, book_checkout, book_more, book_status, book_hanbok, book_breakfast, book_plusperson from haon_book order by book_id desc) as b
+		limit #{skip}, #{amount}
+	</select>
+	
+	
 </mapper>

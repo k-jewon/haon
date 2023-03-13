@@ -15,25 +15,26 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.co.haon.book.BookVO;
+import kr.co.haon.book.Criteria;
 
 @Controller
 public class BookAdminController {
 	@Autowired
-	BookAdminService bookAdminService;
+	private BookAdminService bookAdminService;
 	
-	@RequestMapping(value = "/adminBookList", method = RequestMethod.GET)
-	public String adminBookList(Model model) {
-		List<BookVO> list = bookAdminService.getBookListAdmin(); 
+	@RequestMapping(value = "/admin/bookList", method = RequestMethod.GET)
+	public String adminBookList(Model model, Criteria cri) {
+		List<BookVO> list = bookAdminService.getListPaging(cri); 
 
 		model.addAttribute("list", list);
 		return "admin/book/bookList";
 	}
-	@RequestMapping(value = "/getSearchList", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/getSearchList", method = RequestMethod.GET)
 	public String getSearchListView() {
 		return "admin/book/bookSearchList";
 	}
 	
-	@RequestMapping(value = "/getSearchList", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/getSearchList", method = RequestMethod.POST)
 	@ResponseBody
 	public String getSearchList(@RequestParam("type") String type, @RequestParam("keyword") String keyword) throws JsonProcessingException{
 		
@@ -56,7 +57,4 @@ public class BookAdminController {
 		System.out.println(json);
 		return json;
 	}
-	
-	
-	
 }

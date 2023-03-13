@@ -40,4 +40,9 @@ public class RoomClientDAOImpl implements RoomClientDAO {
 		return Ss.selectOne("kr.co.haon.room.client.RoomClientDAO.GetRoom", vo);
 	}
 	
+	@Override
+	public RoomVO getRoomByRoomID(String room_id) throws Exception {
+		return Ss.selectOne("kr.co.haon.room.client.RoomClientDAO.getRoomByRoomID", room_id);
+	}
+	
 }

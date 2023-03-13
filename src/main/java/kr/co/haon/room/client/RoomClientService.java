@@ -10,4 +10,5 @@ public interface RoomClientService {
 	public List<RoomVO> selectRoom3() throws Exception;
 	public List<RoomVO> selectRoom4() throws Exception;
 	public RoomVO getRoom(RoomVO vo) throws Exception;
+	public RoomVO getRoomByRoomID(String room_id) throws Exception;
 }

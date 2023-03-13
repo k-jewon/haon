@@ -1,8 +1,12 @@
 package kr.co.haon.user.client;
 
+
+import javax.servlet.http.HttpServletRequest;
+
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +16,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import kr.co.haon.user.UserVO;
 
@@ -32,7 +38,7 @@ public class UserClientController {
 	}
 	
 	@RequestMapping(value = "/client/user/login", method = RequestMethod.POST)
-	public String loginAction(UserVO vo, HttpSession session, Model model) {
+	public String loginAction(UserVO vo, HttpSession session, Model model, HttpServletRequest request) {
 		System.out.println("login 컨트롤러");
 		UserVO login_info = userClientService.loginCheck(vo);
 		if(login_info == null) {
@@ -43,9 +49,19 @@ public class UserClientController {
 			return "client/user/login";
 		}else {
 			session.setAttribute("login_info", login_info);
-			return "redirect:/";
+			
+			String prevPage = (String) session.getAttribute("prevPage");
+			
+			System.out.println("prevPage : " + prevPage);
+			
+			if(prevPage == null || prevPage.equals("")) {
+				return "redirect:/";
+			}else {
+				session.removeAttribute("prevPage");
+				System.out.println("prevPage : " + prevPage);
+				return "redirect:" + prevPage;
+			}
 		}
-		
 	}
 	
 	@RequestMapping(value = "/client/user/logout", method = RequestMethod.GET)

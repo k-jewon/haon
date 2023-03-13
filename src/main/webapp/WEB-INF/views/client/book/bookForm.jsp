@@ -2,12 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <jsp:include page="/WEB-INF/views/client/header.jsp" />
 <body class="bg-light">
-
 	<div class="container">
-		<div class="py-5 text-center">
+		<div class="mt-5 py-3 text-center">
 			<h2>예약 하기</h2>
 		</div>
 
@@ -17,33 +17,33 @@
 				<div class="row">
 					<div class="col-md-12 mb-3">
 						<label for="name">성함</label>
-						<input type="text" class="form-control" id="name" value="홍길동" readonly>
+						<input type="text" class="form-control" id="name" value="${login_info.user_name }" readonly>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6 mb-3">
 						<h6>생년월일</h6>
-						<input type="text" class="test1 form-control" id="birth1" value="2023" readonly> 년
-						<input type="text" class="test1 form-control" id="birth2" value="03" readonly> 월
-						<input type="text" class="test1 form-control" id="birth3" value="27" readonly> 일
+						<input type="text" class="test1 form-control" id="birth1" value="${fn:substring(login_info.user_birth,0,4)}" readonly> 년
+						<input type="text" class="test1 form-control" id="birth2" value="${fn:substring(login_info.user_birth,5,7)}" readonly> 월
+						<input type="text" class="test1 form-control" id="birth3" value="${fn:substring(login_info.user_birth,8,10)}" readonly> 일
 					</div>
 					<div class="col-md-6 mb-3">
 						<h6>연락처</h6>
-						<input type="text" class="form-control test1" id="phone1" value="010" readonly> - 
-						<input type="text" class="form-control test1" id="phone2" value="1234" readonly> - 
-						<input type="text" class="form-control test1" id="phone3" value="5678" readonly>
+						<input type="text" class="form-control test1" id="phone1" value="${fn:substring(login_info.user_phone,0,3)}" readonly> - 
+						<input type="text" class="form-control test1" id="phone2" value="${fn:substring(login_info.user_phone,3,7)}" readonly> - 
+						<input type="text" class="form-control test1" id="phone3" value="${fn:substring(login_info.user_phone,7,11)}" readonly>
 					</div>
 				</div>
 
 				<div class="mb-3">
 					<label for="email">이메일</label>
-					<input type="text" class="form-control" id="email" value="haon@naver.com" readonly>
+					<input type="text" class="form-control" id="email" value="${login_info.user_email }" readonly>
 				</div>
 
 				<hr class="mb-4">
 				<div class="mb-3">
 					<label for="room">방이름</label>
-					<input type="text" class="form-control" id="room" name="room" value="디럭스 더블 온돌" readonly>
+					<input type="text" class="form-control" id="room" name="room" value="${room.room_name}  ${room.room_type}" readonly>
 				</div>
 
 				<div class="mb-3">
@@ -51,11 +51,11 @@
 					<div class="row">
 						<div class="col-md-6 checkIn">
 							<label for="checkIn">체크인</label>
-							<input type="date" class="form-control" id="checkIn" required>
+							<input type="date" class="form-control" id="checkIn" onchange="test();" required>
 						</div>
 						<div class="col-md-6">
 							<label for="checkOut">체크아웃</label>
-							<input type="date" class="form-control" id="checkOut" required>
+							<input type="date" class="form-control" id="checkOut" onchange="test();" required>
 						</div>
 					</div>
 
@@ -99,7 +99,7 @@
 					<tbody>
 						<tr>
 							<td>객실가격</td>
-							<td><span id="roomPrice">990000</span>원</td>
+							<td><span id="roomPrice">${room.room_price }</span>원 (<span id="bak"></span>박, 1박당 ${room.room_price }원)</td>
 							<td rowspan="3"
 								style="text-align: center; vertical-align: middle; background-color: red">
 								<h4 style="color: white;">최종금액</h4>
@@ -119,13 +119,13 @@
 					</tbody>
 				</table>
 				<hr class="mb-4">
-				<div class="row">
+				<div class="row mb-3">
 					<div class="col-md-4 m-auto mb-5">
 						<button class="btn btn-primary btn-lg btn-block testtest"
 							type="button" onclick="Checkform(); modalFunction();">확인</button>
 					</div>
-					<div class="col-md-4 m-auto mt-5">
-						<button class="btn btn-primary btn-lg btn-block" type="reset">이전으로</button>
+					<div class="col-md-4 m-auto mb-5">
+						<button class="btn btn-primary btn-lg btn-block mt-3" type="reset">이전으로</button>
 					</div>
 				</div>
 			</div>
@@ -135,18 +135,18 @@
 	<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCart">Launch modal</button> -->
 
 	<!-- Modal: modalCart -->
-	<form action="book" method="post">
+	<form action="/book" method="post">
 		<div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<input type="hidden" id="book_Id" name="book_Id" value="1">
-				<input type="hidden" id="room_Id" name="room_Id" value="1">
-				<input type="hidden" id="user_Id" name="user_Id" value="0">
+				<input type="hidden" id="book_Id" name="book_Id" value="0">
+				<input type="hidden" id="room_Id" name="room_Id" value="${room_id }">
+				<input type="hidden" id="user_Id" name="user_Id" value="${login_info.user_id }">
 				<input type="hidden" id="book_price" name="book_price" value="3">
-				<input type="hidden" id="book_reserveDate" name="book_reserveDate" value="2023-03-27">
+				<input type="hidden" id="book_reserveDate" name="book_reserveDate" value="2023-03-10">
 				<input type="hidden" id="book_checkIn" name="book_checkIn">
 				<input type="hidden" id="book_checkOut" name="book_checkOut">
 				<input type="hidden" id="book_more" name="book_more">
-				<input type="hidden" id="book_status" name="book_status" value="0">
+				<input type="hidden" id="book_status" name="book_status" value="1">
 				<input type="hidden" id="book_hanbok" name="book_hanbok">
 				<input type="hidden" id="book_breakfast" name="book_breakfast">
 				<input type="hidden" id="book_plusperson" name="book_plusperson">

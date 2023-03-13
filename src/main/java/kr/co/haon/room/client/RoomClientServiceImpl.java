@@ -40,4 +40,9 @@ public class RoomClientServiceImpl implements RoomClientService {
 	public RoomVO getRoom(RoomVO vo) throws Exception {
 		return dao.GetRoom(vo);
 	}
+	
+	@Override
+	public RoomVO getRoomByRoomID(String room_id) throws Exception {
+		return dao.getRoomByRoomID(room_id);
+	}
 }
