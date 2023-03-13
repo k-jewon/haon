@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,38 +8,42 @@
 <title>Room1 리스트</title>
 </head>
 <body>
-   <jsp:include page="/WEB-INF/views/client/header.jsp" />
-   <br>
-   <div class="container">
-         <div class="row featurette row_list">
-         <div class="col-md-5 order-md-1">
-            <h2 class="featurette-heading">${room}</h2>
-         </div>
-      </div>
-   <hr class="featurette-divider">
-   <main role="main">
-   <c:forEach items="${roomList}" var="room">
+	<jsp:include page="/WEB-INF/views/client/header.jsp" />
+	<div class="container">
+		<main role="main">
+		<div class="row featurette row_list">
+			<div class="col-md-7 order-md-2">
+				<h2 class="featurette-heading">${room}</h2>			
+			</div>
+		</div>
+		<hr class="featurette-divider">
+			<c:forEach items="${roomList}" var="room">
 
-      <div class="row featurette row_list">
-         <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading" style="margin-top: 40px">
-               <a href="getRoom/${room.room_name}/${room.room_type}"><span class="text-muted">${room.room_name}&nbsp;${room.room_type}</span></a>
-            </h2>
-            <br>
-            <p class="lead">
-               <a href="getRoom/${room.room_name}/${room.room_type}" style="margin-bottom: 25px">${room.room_desc}</a>
-            </p>
-         </div>
-         <div class="col-md-5 order-md-1">
-             <a href="getRoom/${room.room_name}/${room.room_type}">
-            <img class="img-thumbnail" src="resources/img/${room.room_name}/${room.room_type}/main.jpg" href="getRoom/${room.room_name}/${room.room_type}" width="300" height="400">
-         	</a>
-         </div>
-      </div>
-   <hr class="featurette-divider">
-   </c:forEach>   
-      <jsp:include page="/WEB-INF/views/client/footer.jsp" />
-   </main>
-   </div>
+				<div class="row featurette row_list">
+					<div class="col-md-7 order-md-2">
+						<h2 class="featurette-heading" style="margin-top: 30px">
+							<a href="getRoom/${room.room_name}/${room.room_type}"><span
+								class="text-muted">${room.room_name}&nbsp;${room.room_type}</span></a>
+						</h2>
+						<br>
+						<p class="lead">
+							<a href="getRoom/${room.room_name}/${room.room_type}"
+								style="margin-bottom: 25px">${room.room_desc}</a>
+						</p>
+					</div>
+					<div class="col-md-5 order-md-1">
+						<a href="getRoom/${room.room_name}/${room.room_type}"> <img
+							class="img-thumbnail"
+							src="resources/img/${room.room_name}/${room.room_type}/main.jpg"
+							href="getRoom/${room.room_name}/${room.room_type}" width="300"
+							height="400">
+						</a>
+					</div>
+				</div>
+				<hr class="featurette-divider">
+			</c:forEach>
+			<jsp:include page="/WEB-INF/views/client/footer.jsp" />
+		</main>
+	</div>
 </body>
 </html>

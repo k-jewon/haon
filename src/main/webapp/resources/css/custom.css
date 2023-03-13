@@ -15,14 +15,6 @@
 	}
 }
 
-.main_list {
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	cursor
-	="pointer";
-}
-
 .test1 {
 	width: 25%;
 	border: 1px solid #ced4da;
@@ -101,4 +93,11 @@ footer.sticky-footer .copyright {
 
 .form-control option[value=""][disabled] {
 	display: none;
+}
+
+.main_list {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	cursor : "pointer";
 }

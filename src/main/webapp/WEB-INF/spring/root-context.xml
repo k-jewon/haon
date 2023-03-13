@@ -49,6 +49,12 @@
       <constructor-arg ref="sqlSessionFactory" />
    </bean>
 
+
+	<!-- 파일 업로드 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000"></property>
+	</bean>
+
 	<bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" />
@@ -65,6 +71,7 @@
 			</props>
 		</property>
 	</bean>
+
 
 <!-- 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
