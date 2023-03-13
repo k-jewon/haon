@@ -15,7 +15,7 @@
 	<br>
 	<main role="main">
 		<div class="container mt-5 bg-light">
-		<img src="" title="${room.room_name} ${room.room_type}" height="100%" />
+		<img class="img-thumbnail" src="/resources/img/${room.room_name}/${room.room_type}/main.jpg" width="100%" height="100%">
 		</div>
 		<br>
 		<div class="container">

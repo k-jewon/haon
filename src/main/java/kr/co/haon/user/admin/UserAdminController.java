@@ -44,7 +44,7 @@ public class UserAdminController {
 				return "redirect:/client/user/login";
 			}else {
 				session.setAttribute("login_info", admin);
-				return "/admin/index";
+				return "redirect:/admin";
 			}
 		}
 		
@@ -60,11 +60,5 @@ public class UserAdminController {
 		public String adminLogout(HttpSession session) {
 			session.invalidate();
 			return "redirect:/admin";
-		}
-		
-		@RequestMapping(value= "/admin", method = RequestMethod.GET)
-		public String adminindex() {
-			
-			return "/admin/index";
 		}
 }
