@@ -22,21 +22,22 @@
 
       <div class="row featurette row_list">
          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">
+            <h2 class="featurette-heading" style="margin-top: 40px">
                <a href="getRoom/${room.room_name}/${room.room_type}"><span class="text-muted">${room.room_name}&nbsp;${room.room_type}</span></a>
             </h2>
             <br>
             <p class="lead">
-               <a href="getRoom/${room.room_name}/${room.room_type}">${room.room_desc}</a>
+               <a href="getRoom/${room.room_name}/${room.room_type}" style="margin-bottom: 25px">${room.room_desc}</a>
             </p>
          </div>
          <div class="col-md-5 order-md-1">
-            <img src="" href="getRoom/${room.room_name}/${room.room_type}">
+             <a href="getRoom/${room.room_name}/${room.room_type}">
+            <img class="img-thumbnail" src="resources/img/${room.room_name}/${room.room_type}/main.jpg" href="getRoom/${room.room_name}/${room.room_type}" width="300" height="400">
+         	</a>
          </div>
       </div>
    <hr class="featurette-divider">
-   </c:forEach>
-   
+   </c:forEach>   
       <jsp:include page="/WEB-INF/views/client/footer.jsp" />
    </main>
    </div>
