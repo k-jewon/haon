@@ -138,9 +138,9 @@
 	<form action="/book" method="post">
 		<div class="modal fade" id="modalCart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
-				<input type="hidden" id="book_Id" name="book_Id" value="0">
-				<input type="hidden" id="room_Id" name="room_Id" value="${room_id }">
-				<input type="hidden" id="user_Id" name="user_Id" value="${login_info.user_id }">
+				<input type="hidden" id="book_id" name="book_id" value="0">
+				<input type="hidden" id="room_id" name="room_id" value="${room_id }">
+				<input type="hidden" id="user_id" name="user_id" value="${login_info.user_id }">
 				<input type="hidden" id="book_price" name="book_price" value="3">
 				<input type="hidden" id="book_reserveDate" name="book_reserveDate" value="2023-03-10">
 				<input type="hidden" id="book_checkIn" name="book_checkIn">
