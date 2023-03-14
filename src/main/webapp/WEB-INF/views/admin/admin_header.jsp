@@ -37,7 +37,7 @@
 				<li class="nav-item ml-5" id="nav3"><a class="nav-link"
 					href="/admin/adminBookList">예약관리</a></li>
 				<li class="nav-item ml-5" id="nav4"><a class="nav-link"
-					href="/admin/adminRoomList">객실관리</a></li>
+					href="/admin/adminRoomList">객실관리</a></li> 
 				<li class="nav-item ml-5" id="nav5"><a class="nav-link"
 					href="/admin/adminPayList">결제관리</a></li>
 				<li class="nav-item ml-5"><a class="nav-link" href="#">고객페이지로
