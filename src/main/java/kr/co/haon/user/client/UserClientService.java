@@ -9,4 +9,5 @@ public interface UserClientService {
 	public UserVO loginCheck(UserVO vo);
 	String getAccessToken(String authorize_code) throws Throwable;
 	public UserVO getUserInfo(String access_Token) throws Throwable;
+	public int changePw(UserVO vo);
 }
