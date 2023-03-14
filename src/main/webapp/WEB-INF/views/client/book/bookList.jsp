@@ -29,11 +29,11 @@
 		<input type="hidden" value="${msg }" id="hiddenInput">
 		<c:forEach var="bookList" items="${list }">
 			<form method="post" name="frmbookcheck" action="bookUpdate" onsubmit="return confirm('정말 예약을 취소하시겠습니까?');">
-				<input type="hidden" value="${bookList.book_Id }" name="book_Id">
+				<input type="hidden" value="${bookList.book_id }" name="book_id">
 				<hr class="mb-6">
 				<div class="row">
 					<div class="col-md-6 mb-3">
-						<span class="text-muted">${bookList.room_Id }</span>
+						<span class="text-muted">${bookList.room_id }</span>
 					</div>
 					<h5 class="col-md-6 mb-3 text-right">
 						<c:choose>
@@ -63,7 +63,7 @@
 					</div>
 					<div class="col-md-6 mb-3 text-right">
 						<c:if test="${bookList.book_status == 1}">
-							<button name="resetpay" class="btn btn-success" type="button" onclick="location.href='/payform/${bookList.book_Id}'">결제하기</button>
+							<button name="resetpay" class="btn btn-success" type="button" onclick="location.href='/payform/${bookList.book_id}'">결제하기</button>
 							<button type="submit" class="btn btn-danger">예약취소</button>
 						</c:if>
 						<!-- <button type="submit" name="resetpay" class="btn btn-info">예약확인</button> -->

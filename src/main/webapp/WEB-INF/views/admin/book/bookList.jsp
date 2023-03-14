@@ -27,8 +27,8 @@
 					<div class="input-group mb-3 col-md-4 text-right">
 						  <select id="inputGroupSelect04" name="type">
 						    <option selected value="">검색 종류</option>
-						    <option value="user_Id">예약자명</option>
-						    <option value="room_Id">객실명</option>
+						    <option value="user_id">예약자명</option>
+						    <option value="room_id">객실명</option>
 						    <option value="book_status">예약상태</option>
 						    <option value="book_reserveDate">예약일</option>
 						  </select>
@@ -57,9 +57,9 @@
 								<tbody>
 									<c:forEach var="list" items="${list }">
 										<tr>
-											<td>${list.book_Id }</td>
-											<td>${list.room_Id }</td>
-											<td>${list.user_Id }</td>
+											<td>${list.book_id }</td>
+											<td>${list.room_id }</td>
+											<td>${list.user_id }</td>
 											<td>${list.book_checkIn }</td>
 											<td>${list.book_checkOut }</td>
 											<td><c:choose>
@@ -105,16 +105,15 @@ $(document).ready(function(){
 		        htmlString += "</tr>"
 		        for(var i = 0; i < data.list.length; i++) {
 		          htmlString += "<tr>";
-		          htmlString += "	<td>" + data.list[i].book_Id + "</td>"; 
+		          htmlString += "	<td>" + data.list[i].book_id + "</td>"; 
 		          htmlString += "	<td>";
-		          htmlString += "		<a href='getBoard.do?seq=" + data.list[i].book_Id + "'>" + data.list[i].book_Id + "</a>"; 
+		          htmlString += "		<a href='getBoard.do?seq=" + data.list[i].book_id + "'>" + data.list[i].book_id + "</a>"; 
 		          htmlString += "	</td>"; 
 		          htmlString += "	<td>" + data.list[i].book_checkOut + "</td>"; 
 		          htmlString += "	<td>" + data.list[i].book_checkIn + "</td>"; 
 		          htmlString += "	<td>" + data.list[i].book_reserveDate + "</td>"; 
 		          htmlString += "</tr>";	
 		        }
-
 		        $("#bookSearchTable").html(htmlString);
 			},
 			error:function(e){ 

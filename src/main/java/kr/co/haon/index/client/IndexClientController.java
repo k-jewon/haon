@@ -29,13 +29,14 @@ public class IndexClientController {
 	}
 
 	@RequestMapping(value = "/client/mypage", method = RequestMethod.GET)
-	public String mypage(String message, Model model, PayVO pvo, HttpSession session) {
+	public String mypage(String message, Model model, HttpSession session) {
 		Object sessionCheck =  session.getAttribute("login_info");
 		UserVO userVO = (UserVO)sessionCheck;
+		PayVO pvo = new PayVO();
 		
 		System.out.println("message : " + message);
 		
-		pvo.setUser_id(1);
+		pvo.setUser_id(userVO.getUser_id());
 		model.addAttribute("mypayList", pcservice.mypayList(pvo));
 		model.addAttribute("list", bcservice.getBookList(userVO.getUser_id()));
 		

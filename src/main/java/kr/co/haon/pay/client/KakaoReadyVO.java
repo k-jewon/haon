@@ -2,7 +2,6 @@ package kr.co.haon.pay.client;
 
 public class KakaoReadyVO {
 	private String tid, next_redirect_app_url, next_redirect_mobile_url, next_redirect_pc_url, android_app_scheme, ios_app_scheme, created_at, pg_token;
-
 	public String getTid() {
 		return tid;
 	}

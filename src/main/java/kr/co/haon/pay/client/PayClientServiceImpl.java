@@ -26,5 +26,15 @@ public class PayClientServiceImpl implements PayClientService {
 	public PayVO payInfo(PayVO pvo) {
 		return pcdao.payInfo(pvo);
 	}
+	
+	@Override
+	public void updateStatus(PayVO pvo) {
+		pcdao.updateStatus(pvo);
+	}
+	
+	@Override
+	public void payCancel(PayVO pvo) {
+		pcdao.payCancel(pvo);
+	}
 
 }
