@@ -2,6 +2,7 @@ package kr.co.haon.pay.client;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
@@ -46,35 +47,39 @@ public class PayClientController {
 	public String payFail() {
 		return "client/pay/payCancel";
 	}
-	
-	@RequestMapping(value = "/kakaopay", method = RequestMethod.POST)
-	public String kakaoP() {
-		return "redirect:" + kakaoPay();
-	}
+//	
+//	@RequestMapping(value = "/kakaopay", method = RequestMethod.POST)
+//	public String kakaoP() {
+//		return "redirect:" + kakaoPay();
+//	}
 	
 	@ResponseBody
-	public String kakaoPay() {
+	@RequestMapping(value = "/kakaopay", method = RequestMethod.POST)
+	public String kakaoPay(@RequestParam Map<String, Object> prm) {
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
-		headers.add("Authorization", "KakaoAK 93271d950aa5d517ead494a2e9f09041");
-		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+		headers.set("Authorization", "KakaoAK 93271d950aa5d517ead494a2e9f09041");
+		headers.set("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+		String partner_order_id = (String)prm.get("partner_order_id");
+		String partner_user_id = (String)prm.get("partner_user_id");
+		String item_name = (String)prm.get("item_name");
+		String total_amount = (String)prm.get("total_amount");
+		System.out.println("order : " + partner_order_id + " user : " + partner_user_id + " item : " + item_name + " total : " + total_amount);
 		params.add("cid", "TC0ONETIME");
-		params.add("partner_order_id", "");
-		params.add("partner_user_id", "");
-		params.add("item_name", "");
+		params.add("partner_order_id", partner_order_id);
+		params.add("partner_user_id", partner_user_id);
+		params.add("item_name", item_name);
 		params.add("quantity", "1");
-		params.add("total_amount", "");
+		params.add("total_amount", total_amount);
 		params.add("tax_free_amount", "0");
 		params.add("approval_url", "http://localhost:8080/kakaopaysuccess");
 		params.add("cancel_url", "http://localhost:8080/paycancel");
 		params.add("fail_url", "http://localhost:8080/payerror");
-		
 		HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 		
 		try {
 			kakaor = restTemplate.postForObject(new URI(HOST + "/v1/payment/ready"), body, KakaoReadyVO.class);
-            
             return kakaor.getNext_redirect_pc_url();
  
         } catch (RestClientException e) {
@@ -88,35 +93,35 @@ public class PayClientController {
 	}
 	
 	@RequestMapping(value = "/kakaopaysuccess", method = RequestMethod.GET)
-	public String kakaoPaySuccess(@RequestParam String pg_token, Model model) {
-		model.addAttribute("info", kakaoPayInfo(pg_token));
+	public String kakaoPaySuccess(@RequestParam String pg_token, Model model, String tid, String partner_order_id, String partner_user_id, String total_amount) {
+		System.out.println(partner_order_id + partner_user_id + total_amount);
+		model.addAttribute("info", kakaoPayInfo(pg_token, tid, partner_order_id, partner_user_id, total_amount));
 		return "client/pay/paySuccess";
 	}
 	
-	public KakaoApproveVO kakaoPayInfo(String pg_token) {
+	
+	public KakaoApproveVO kakaoPayInfo(String pg_token, String tid, String partner_order_id, String partner_user_id, String total_amount) {
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "KakaoAK 93271d950aa5d517ead494a2e9f09041");
 		headers.add("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("cid", "TC0ONETIME");
-		params.add("tid", kakaor.getTid());
-		params.add("partner_order_id", "");
-		params.add("partner_user_id", "");
+		params.add("tid", tid);
+		params.add("partner_order_id", partner_order_id);
+		params.add("partner_user_id", partner_user_id);
 		params.add("pg_token", pg_token);
-		params.add("total_amount", "");
+		params.add("total_amount", total_amount);
 		
 		HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 		try {
             kakaoa = restTemplate.postForObject(new URI(HOST + "/v1/payment/approve"), body, KakaoApproveVO.class);
             PayVO pvo = new PayVO();
-            pvo.setUser_id(Integer.parseInt(kakaoa.getPartner_user_id()));
-            pvo.setPay_id(kakaoa.getTid());
-            pvo.setRoom_name(kakaoa.getItem_name());
-            pvo.setBook_id(Integer.parseInt(kakaoa.getPartner_order_id()));
-            pvo.setUser_name("");
+            pvo.setUser_id(Integer.parseInt(partner_user_id));
+            pvo.setPay_id(tid);
+            pvo.setBook_id(Integer.parseInt(partner_order_id));
             pvo.setPay_payment(1);
-            pvo.setBook_price(kakaoa.getAmount().getTotal());
+            pvo.setBook_price(Integer.parseInt(total_amount));
             pcservice.paySucceed(pvo);
             
             return kakaoa;

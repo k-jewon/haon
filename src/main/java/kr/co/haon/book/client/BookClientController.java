@@ -27,16 +27,16 @@ public class BookClientController {
 	private RoomClientService rcs;
 	
 	@RequestMapping(value = "/bookForm/{room_id}", method = RequestMethod.GET)
-	public String bookForm(@PathVariable("room_id")String room_Id, HttpSession session, Model model) throws Exception {
+	public String bookForm(@PathVariable("room_id")String room_id, HttpSession session, Model model) throws Exception {
 		Object sessionCheck = session.getAttribute("login_info");
 		
-		RoomVO roomVO = rcs.getRoomByRoomID(room_Id);
+		RoomVO roomVO = rcs.getRoomByRoomID(room_id);
 		
 		System.out.println(roomVO);
 		model.addAttribute("room", roomVO);
 		
 		if(sessionCheck == null || sessionCheck.equals("")) {
-			session.setAttribute("prevPage", "/bookForm/" + room_Id);
+			session.setAttribute("prevPage", "/bookForm/" + room_id);
 			return "client/user/login";
 		}else {
 			return "client/book/bookForm";
@@ -58,7 +58,7 @@ public class BookClientController {
 		int result = bcs.insertOne(vo);
 		
 		if(result > 0) {
-			List<BookVO> list = bcs.getBookList(vo.getUser_Id());
+			List<BookVO> list = bcs.getBookList(vo.getUser_id());
 			model.addAttribute("list", list);
 			rttr.addFlashAttribute("msg", "예약이 완료 되었습니다.");
 			return "redirect:client/mypage";
@@ -88,8 +88,8 @@ public class BookClientController {
 	}
 	
 	@RequestMapping(value = "/bookUpdate", method = RequestMethod.POST)
-	public String updateBook(int book_Id, Model model) {
-		bcs.updateOne(book_Id);
+	public String updateBook(int book_id, Model model) {
+		bcs.updateOne(book_id);
 		return "redirect:/bookList";
 	}
 }

@@ -19,12 +19,12 @@ public class BookClientServiceImpl implements BookClientService{
 	}
 	
 	@Override
-	public List<BookVO> getBookList(int user_Id) {
-		return bookDAO.getBookList(user_Id);
+	public List<BookVO> getBookList(int user_id) {
+		return bookDAO.getBookList(user_id);
 	}
 	
 	@Override
-	public void updateOne(int book_Id) {
-		bookDAO.updateOne(book_Id);
+	public void updateOne(int book_id) {
+		bookDAO.updateOne(book_id);
 	}
 }
