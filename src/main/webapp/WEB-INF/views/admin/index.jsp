@@ -3,10 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/WEB-INF/views/admin/admin_header.jsp" />
 <script>
-$(document).ready(function(){
-	$('#nav1').addClass('active');
-})
-
+	$(document).ready(function() {
+		$('#nav1').addClass('active');
+	})
 </script>
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -30,7 +29,7 @@ $(document).ready(function(){
 											class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 											오늘 예약자 수</div>
 										<div class="h5 mb-0 font-weight-bold text-gray-800">
-											 ${todayBook} 건</div>
+											${todayBook} 건</div>
 									</div>
 									<div class="col-auto">
 										<i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -216,8 +215,11 @@ $(document).ready(function(){
 	</div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <!-- 차트 데이터 -->
 <script src="resources/js/demo/chart-popularity.js"></script>

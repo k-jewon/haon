@@ -1,10 +1,12 @@
 package kr.co.haon.index.admin;
 
 import java.util.List;
-import java.util.Map;
 
 import kr.co.haon.index.ChartBookVO;
-import kr.co.haon.pay.PayVO;
+import kr.co.haon.index.ChartPayVO;
+import kr.co.haon.index.ChartUserVO;
+import kr.co.haon.index.PopularRoomVO;
+import kr.co.haon.index.RecommendedRoomVO;
 
 public interface IndexAdminDAO {
 	public int todayBook();
@@ -15,14 +17,14 @@ public interface IndexAdminDAO {
 
 	public int allUser();
 	
-	public List<Map<String, String>> chartUser();
+	public List<ChartUserVO> chartUser();
 	
 	public List<ChartBookVO> chartBook();
 	
-	public List<PayVO> chartSales();
+	public List<ChartPayVO> chartPay();
 	
-	public List<PayVO> popularRoom();
+	public List<PopularRoomVO> popularRoom();
 	
-	public List<PayVO> recommendedRoom();
+	public List<RecommendedRoomVO> recommendedRoom();
 	
 }

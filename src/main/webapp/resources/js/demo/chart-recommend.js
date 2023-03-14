@@ -1,10 +1,21 @@
+var RecommendLabels = [];
+var RecommendData = [];
+
+$.getJSON("/recommendedRoom", function(data) {
+
+	$.each(data, function(inx, obj) {
+		RecommendLabels.push(obj.room_name);
+		RecommendData.push(obj.r_room);
+	});
+});
+
 const chartRecommend = new Chart(
-document.getElementById("chartRecommend"), {
+  document.getElementById("chartRecommend"), {
   type: 'pie',
   data: {
-    labels: ["무궁화", "소나무", "사랑채", "백두산"],
+    labels: RecommendLabels,
     datasets: [{
-      data: [55, 20, 15, 10],
+      data: RecommendData,
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#c6ea82'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#7aad4c'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -22,10 +33,8 @@ document.getElementById("chartRecommend"), {
       displayColors: false,
       caretPadding: 10,
     },
-	plugins: {
-		legend: {
-			display: false
-			},
+	legend: {
+		display: false
 	},
   },
 });

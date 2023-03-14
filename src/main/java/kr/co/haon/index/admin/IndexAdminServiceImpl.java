@@ -1,13 +1,15 @@
 package kr.co.haon.index.admin;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.haon.index.ChartBookVO;
-import kr.co.haon.pay.PayVO;
+import kr.co.haon.index.ChartPayVO;
+import kr.co.haon.index.ChartUserVO;
+import kr.co.haon.index.PopularRoomVO;
+import kr.co.haon.index.RecommendedRoomVO;
 
 @Service
 public class IndexAdminServiceImpl implements IndexAdminService {
@@ -36,7 +38,7 @@ public class IndexAdminServiceImpl implements IndexAdminService {
 	}
 
 	@Override
-	public List<Map<String, String>> chartUser() {
+	public List<ChartUserVO> chartUser() {
 		return iaDao.chartUser();
 	}
 
@@ -46,17 +48,17 @@ public class IndexAdminServiceImpl implements IndexAdminService {
 	}
 
 	@Override
-	public List<PayVO> chartSales() {
-		return iaDao.chartSales();
+	public List<ChartPayVO> chartPay() {
+		return iaDao.chartPay();
 	}
 
 	@Override
-	public List<PayVO> popularRoom() {
+	public List<PopularRoomVO> popularRoom() {
 		return iaDao.popularRoom();
 	}
 
 	@Override
-	public List<PayVO> recommendedRoom() {
+	public List<RecommendedRoomVO> recommendedRoom() {
 		return iaDao.recommendedRoom();
 	}
 

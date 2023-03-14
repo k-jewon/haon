@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.haon.pay.admin.PayAdminDAO">
    <select id="getPayList" resultType="Pay">
-   		SELECT PAY_ID, R.ROOM_NAME, U.USER_NAME, P.PAY_STATIC, P.BOOK_PRICE, P.PAY_DATE
+   		SELECT PAY_ID, R.ROOM_NAME, U.USER_NAME, P.PAY_STATUS, P.BOOK_PRICE, P.PAY_DATE
 		FROM HAON_PAY AS P 
 		JOIN HAON_USER AS U
 		ON P.USER_ID=U.USER_ID
@@ -15,10 +15,10 @@
 		ORDER BY P.PAY_DATE DESC;
    </select>
     <update id="updatePayStatic" parameterType="Pay">
-      update haon_pay set pay_static='CANCEL_PAYMENT'
+      update haon_pay set pay_status='CANCEL_PAYMENT'
       where pay_id=#{pay_id}
    </update>
    <delete id="deletePay" parameterType="Pay">
-      delete from haon_pay where pay_id=#{pay_id} and pay_static='CANCEL_PAYMENT'
+      delete from haon_pay where pay_id=#{pay_id} and pay_status='CANCEL_PAYMENT'
    </delete>
 </mapper>

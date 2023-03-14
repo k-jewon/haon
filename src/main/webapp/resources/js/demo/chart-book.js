@@ -1,8 +1,19 @@
+var bookLabels = [];
+var bookData = [];
+
+$.getJSON("/bookChart", function(data) {
+
+	$.each(data, function(inx, obj) {
+		bookLabels.push(obj.b_month);
+		bookData.push(obj.b_num);
+	});
+});
+
 const chartBook = new Chart(
 	document.getElementById('chartBook'), {
 	type: 'line',
 	data: {
-	labels : ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
+	labels : bookLabels,
 datasets : [{
 	label:'예약자 수',
 	lineTension: 0.3,
@@ -16,7 +27,7 @@ datasets : [{
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 11, 23, 15, 24, 19],
+    data: bookData,
 }]
 	},
 	 options: {
@@ -29,12 +40,17 @@ datasets : [{
         bottom: 0
       }
     },
-   	plugins: {
 		legend: {
 			display: false
-			},
 	},
      scales: {
+		yAxes: [{
+			ticks: {
+				min: 0,
+				stepSize : 1,
+				fontSize : 14,
+			}
+		}],
       xAxes: [{
         time: {
           unit: 'month'

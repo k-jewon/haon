@@ -1,8 +1,19 @@
+var userLabels = [];
+var userData = [];
+
+$.getJSON("/userChart", function(data) {
+
+	$.each(data, function(inx, obj) {
+		userLabels.push(obj.u_month);
+		userData.push(obj.u_num);
+	});
+});
+
 const chartUser = new Chart(
 	document.getElementById('chartUser'), {
 	type: 'line',
 	data: {
-	labels : ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
+	labels : userLabels,
 datasets : [{
 	label:'가입자 수',
 	lineTension: 0.3,
@@ -16,7 +27,7 @@ datasets : [{
       pointHoverBorderColor: "rgba(78, 115, 223, 1)",
       pointHitRadius: 10,
       pointBorderWidth: 2,
-      data: [0, 12, 35, 76, 123, 56],
+      data: userData,
 }]
 	},
 	 options: {
@@ -29,12 +40,17 @@ datasets : [{
         bottom: 0
       }
     },
-	plugins: {
 		legend: {
 			display: false
-			},
 	},
      scales: {
+		yAxes: [{
+			ticks: {
+				min: 0,
+				stepSize : 1,
+				fontSize : 14,
+			}
+		}],     
       xAxes: [{
         time: {
           unit: 'month'

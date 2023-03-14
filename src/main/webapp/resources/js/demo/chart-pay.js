@@ -1,13 +1,24 @@
+var payLabels = [];
+var payData = [];
+
+$.getJSON("/payChart", function(data) {
+
+	$.each(data, function(inx, obj) {
+		payLabels.push(obj.p_month);
+		payData.push(obj.p_price);
+	});
+});
+
 const chartPay = new Chart(
 	document.getElementById('chartPay'), {
 	type: 'bar',
 	data: {
-	labels : ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr"],
+	labels : payLabels,
 datasets : [{
 	label:'매출액',
 	  backgroundColor: "rgba(78, 115, 223, 1)",
       hoverBackgroundColor: "#6385bc",
-      data: [0, 3160400, 4012800, 7312800, 6612000, 6389000, 8012000],
+      data: payData,
 }]
 	},
 	 options: {
@@ -20,12 +31,16 @@ datasets : [{
         bottom: 0
       }
     },
-    plugins: {
-		legend: {
-			display: false
-			},
+	legend: {
+		display: false
 	},
      scales: {
+		yAxes: [{
+			ticks: {
+				min: 0,
+				fontSize : 14,
+			}
+		}],    
       xAxes: [{
         time: {
           unit: 'month'
@@ -37,7 +52,7 @@ datasets : [{
         ticks: {
           maxTicksLimit: 6
         },
-        maxBarThickness: 25,
+        maxBarThickness: 10,
       }],
     },
    },

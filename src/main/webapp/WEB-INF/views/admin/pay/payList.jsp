@@ -57,7 +57,7 @@
                                <td><c:out value="${p.pay_id}"/></td>
                                <td><c:out value="${p.room_name}" /></td>
                                <td><c:out value="${p.user_name}" /></td>
-                               <td><c:out value="${p.pay_static}" /></td>
+                               <td><c:out value="${p.pay_status}" /></td>
                                <td><c:out value="${p.book_price}" /></td>
                                <td><c:out value="${p.pay_date}" /></td>
                                <td><input type="button" value="결제취소" class="btn btn-secondary btn-icon-split" onclick="payUpdate('${p.pay_id}')"/>

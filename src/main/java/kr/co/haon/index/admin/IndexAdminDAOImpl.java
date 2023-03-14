@@ -1,16 +1,16 @@
 package kr.co.haon.index.admin;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.haon.index.ChartBookVO;
-import kr.co.haon.pay.PayVO;
-import kr.co.haon.user.UserVO;
+import kr.co.haon.index.ChartPayVO;
+import kr.co.haon.index.ChartUserVO;
+import kr.co.haon.index.PopularRoomVO;
+import kr.co.haon.index.RecommendedRoomVO;
 
 @Repository
 public class IndexAdminDAOImpl implements IndexAdminDAO {
@@ -41,7 +41,7 @@ public class IndexAdminDAOImpl implements IndexAdminDAO {
 	}
 
 	@Override
-	public List<Map<String, String>> chartUser() {
+	public List<ChartUserVO> chartUser() {
 		return sql.selectList(namespace+".chartUser");
 	}
 
@@ -51,17 +51,17 @@ public class IndexAdminDAOImpl implements IndexAdminDAO {
 	}
 
 	@Override
-	public List<PayVO> chartSales() {
-		return sql.selectList(namespace+".chartSales");
+	public List<ChartPayVO> chartPay() {
+		return sql.selectList(namespace+".chartPay");
 	}
 
 	@Override
-	public List<PayVO> popularRoom() {
+	public List<PopularRoomVO> popularRoom() {
 		return sql.selectList(namespace+".popularRoom");
 	}
 
 	@Override
-	public List<PayVO> recommendedRoom() {
+	public List<RecommendedRoomVO> recommendedRoom() {
 		return sql.selectList(namespace+".recommendedRoom");
 	}
 

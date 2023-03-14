@@ -14,7 +14,7 @@ private int book_price;
 private Date pay_date; 
 private Date book_checkIn;
 private Date book_checkOut;
-private String pay_static;
+private String pay_status;
 private int book_hanbok;
 private int book_breakfast;
 private int book_plusperson;
@@ -85,11 +85,11 @@ public Date getBook_checkOut() {
 public void setBook_checkOut(Date book_checkOut) {
 	this.book_checkOut = book_checkOut;
 }
-public String getPay_static() {
-	return pay_static;
+public String getPay_status() {
+	return pay_status;
 }
-public void setPay_static(String pay_static) {
-	this.pay_static = pay_static;
+public void setPay_status(String pay_status) {
+	this.pay_status = pay_status;
 }
 public int getBook_hanbok() {
 	return book_hanbok;

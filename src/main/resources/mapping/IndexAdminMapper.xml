@@ -21,41 +21,42 @@
 		SELECT COUNT(user_id) FROM haon_user;
 	</select>
 
-	<select id="chartUser" resultType="map">
-		SELECT MONTH(user_date) month, COUNT(user_id) num FROM haon_user
+	<select id="chartUser" resultType="kr.co.haon.index.ChartUserVO">
+		SELECT MONTH(user_date) u_month, COUNT(user_id) u_num FROM haon_user
 		WHERE user_date BETWEEN DATE_ADD(NOW(), INTERVAL -6 MONTH) AND NOW()
 		GROUP BY MONTH(user_date)
-		ORDER BY user_date DESC;
+		ORDER BY user_date;
 	</select>
+	
 	<select id="chartBook" resultType="kr.co.haon.index.ChartBookVO">
-		SELECT MONTH(pay_date) month, COUNT(pay_id) b_num FROM haon_pay
+		SELECT MONTH(pay_date) b_month, COUNT(pay_id) b_num FROM haon_pay
 		WHERE pay_date BETWEEN DATE_ADD(NOW(), INTERVAL -6 MONTH) AND NOW()
 		GROUP BY MONTH(pay_date)
-		ORDER BY pay_date DESC;
+		ORDER BY pay_date;
 	</select>
-	<select id="chartSales" resultType="Pay">
-		SELECT MONTH(pay_date), FORMAT(SUM(book_price),0) FROM haon_pay
+	
+	<select id="chartPay" resultType="kr.co.haon.index.ChartPayVO">
+		SELECT MONTH(pay_date) p_month, SUM(book_price) p_price FROM haon_pay
 		WHERE pay_date BETWEEN DATE_ADD(NOW(), INTERVAL -6 MONTH) AND NOW()
 		GROUP BY MONTH(pay_date)
-		ORDER BY pay_date DESC;
+		ORDER BY pay_date;
 	</select>
-	<select id="popularRoom" resultType="Room">
-		SELECT room_name, count(room_name)
+	
+	<select id="popularRoom" resultType="kr.co.haon.index.PopularRoomVO">
+		SELECT room_name, count(room_name) p_room
 		FROM haon_book b
 		JOIN haon_room r
 		ON b.room_id=r.room_id
 		GROUP BY room_name
-		ORDER BY
-		count(room_name) DESC;
+		ORDER BY count(room_name) DESC;
 	</select>
-	<select id="recommendedRoom" resultType="Room">
-		SELECT room_name,
-		count(room_name)
+	<select id="recommendedRoom" resultType="kr.co.haon.index.RecommendedRoomVO">
+		SELECT room_name, count(room_name) r_room
 		FROM haon_pay p
 		JOIN haon_room r
 		ON p.room_id=r.room_id
 		GROUP BY r.room_name
-		ORDER BY
-		count(room_name) DESC;
+		ORDER BY count(room_name) DESC;
 	</select>
+	
 </mapper>
