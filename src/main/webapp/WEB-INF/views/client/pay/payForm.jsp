@@ -10,12 +10,22 @@ function pay() {
 			type: "POST",
 			url: "/kakaopay",
 			dataType: "text",
-			data: { "cid": "TC0ONETIME", "partner_order_id": "${payinfo.book_id}", "partner_user_id": "${payinfo.user_id}",
-					"item_name": "${payinfo.room_name} ${payinfo.room_type}", "quantity": "1", "total_amount": "${payinfo.book_price}",
-					"tax_free_amount": "0", "approval_url": "http://localhost:8080/kakaopaysuccess",
-					"cancel_url": "http://localhost:8080/paycancel", "fail_url": "http://localhost:8080/payerror" },
+			data: { 
+				"cid": "TC0ONETIME", 
+				"partner_order_id": "${payinfo.book_id}", 
+				"partner_user_id": "${payinfo.user_id}",
+				"item_name": "${payinfo.room_name} ${payinfo.room_type}", 
+				"quantity": "1",
+				"total_amount": "${payinfo.book_price}",
+				"tax_free_amount": "0",
+				"approval_url": "http://localhost:8080/kakaopaysuccess",
+				"cancel_url": "http://localhost:8080/paycancel",
+				"fail_url": "http://localhost:8080/payerror"
+			},
 			success: function(data) {
 				location.href=data.next_redirect_pc_url
+			},
+			error: {
 			}
 		});
 	} else {
@@ -32,10 +42,10 @@ function pay() {
 		<div class="row">
 			<div class="col-md-12">
 				<form class="needs-validation" novalidate method="POST" action="/kakaopay">
-				<input type="hidden" name="partner_order_id" value="${payinfo.book_id}"/>
+				<%-- <input type="hidden" name="partner_order_id" value="${payinfo.book_id}"/>
 				<input type="hidden" name="partner_user_id" value="${payinfo.user_id}"/>
 				<input type="hidden" name="item_name" value="${payinfo.room_name}${payinfo.room_type}"/>
-				<input type="hidden" name="total_amount" value="${payinfo.book_price}"/>
+				<input type="hidden" name="total_amount" value="${payinfo.book_price}"/> --%>
 				<h4 class="mb-3">
 					${payinfo.room_name} ${payinfo.room_type}<span class="text-muted">${payinfo.book_id}</span>
 				</h4>

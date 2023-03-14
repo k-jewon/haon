@@ -14,9 +14,9 @@
 	href="https://getbootstrap.com/docs/4.6/examples/carousel/">
 
 
-<link href="resources/css/sb-admin-2.min.css" rel="stylesheet">
-<link href="resources/css/carousel.css" rel="stylesheet">
-<link href="resources/css/custom.css" rel="stylesheet">
+<link href="/resources/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="/resources/css/carousel.css" rel="stylesheet">
+<link href="/resources/css/custom.css" rel="stylesheet">
 
 </head>
 <body class="d-flex flex-column min-vh-100  p-0">

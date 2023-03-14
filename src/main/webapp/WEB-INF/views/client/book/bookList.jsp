@@ -29,7 +29,7 @@
 		<input type="hidden" value="${msg }" id="hiddenInput">
 		<c:forEach var="bookList" items="${list }">
 			<form method="post" name="frmbookcheck" action="bookUpdate" onsubmit="return confirm('정말 예약을 취소하시겠습니까?');">
-				<input type="hidden" value="${bookList.book_id }" name="book_Id">
+				<input type="hidden" value="${bookList.book_id }" name="book_id">
 				<hr class="mb-6">
 				<div class="row">
 					<div class="col-md-6 mb-3">

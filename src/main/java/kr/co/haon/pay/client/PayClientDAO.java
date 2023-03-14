@@ -29,4 +29,8 @@ public class PayClientDAO {
 	public void updateStatus(PayVO pvo) {
 		mybatis.update("kr.co.haon.pay.client.PayClientDAO.updateStatus", pvo);
 	}
+	
+	public void payCancel(PayVO pvo) {
+		mybatis.update("kr.co.haon.pay.client.PayClientDAO.payCancel", pvo);
+	}
 }

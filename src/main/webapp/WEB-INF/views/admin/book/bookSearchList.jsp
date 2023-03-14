@@ -82,7 +82,6 @@ $(document).ready(function(){
 		          htmlString += "	<td>" + data.list[i].book_reserveDate + "</td>"; 
 		          htmlString += "</tr>";	
 		        }
-
 		        $("#bookSearchTable").html(htmlString);
 			},
 			error:function(e){ 

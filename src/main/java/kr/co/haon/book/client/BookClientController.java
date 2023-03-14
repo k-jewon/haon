@@ -32,7 +32,6 @@ public class BookClientController {
 		
 		RoomVO roomVO = rcs.getRoomByRoomID(room_id);
 		
-		System.out.println(roomVO);
 		model.addAttribute("room", roomVO);
 		
 		if(sessionCheck == null || sessionCheck.equals("")) {
@@ -52,8 +51,6 @@ public class BookClientController {
 	public String bookPOST(BookVO vo, Model model, HttpSession session, RedirectAttributes rttr) {
 		
 		UserVO sessionCheck = (UserVO) session.getAttribute("login_info");
-		
-		
 		
 		int result = bcs.insertOne(vo);
 		

@@ -74,9 +74,13 @@ public class PayClientController {
 			System.out.println("key : " + key + ", value : " + value);
 		}
 		String order = (String)prm.get("partner_order_id");
+		System.out.println(order);
 		String user = (String)prm.get("partner_user_id");
+		System.out.println(user);
 		String item = (String)prm.get("item_name");
+		System.out.println(item);
 		String total = (String)prm.get("total_amount");
+		System.out.println(total);
 		params.add("cid", "TC0ONETIME");
 		params.add("partner_order_id", order);
 		params.add("partner_user_id", user);
@@ -149,12 +153,12 @@ public class PayClientController {
 	}
 	
 	@RequestMapping(value = "/cancelpay", method = RequestMethod.POST)
-	public String kakaoC(Model model, String tid) {
-		model.addAttribute("info", kakaoPayCancel(tid));
+	public String kakaoC(Model model, String tid, KakaoPartnerVO kakaop) {
+		model.addAttribute("info", kakaoPayCancel(tid, kakaop));
 		return "redirect:/paycancel";
 	}
 	
-	public KakaoCancelVO kakaoPayCancel(String tid) {
+	public KakaoCancelVO kakaoPayCancel(String tid, KakaoPartnerVO kakaop) {
 		RestTemplate restTemplate = new RestTemplate();
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Authorization", "KakaoAK 93271d950aa5d517ead494a2e9f09041");
@@ -162,13 +166,16 @@ public class PayClientController {
 		MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
 		params.add("cid", "TC0ONETIME");
 		params.add("tid", tid);
-		params.add("cancel_amount", "3000000");
+		params.add("cancel_amount", Integer.toString(kakaop.getTotal_amount()));
 		params.add("cancel_tax_free_amount", "0");
 		
 		HttpEntity<MultiValueMap<String, String>> body = new HttpEntity<MultiValueMap<String, String>>(params, headers);
 		
 		try {
 			kakaoc = restTemplate.postForObject(new URI(HOST + "/v1/payment/cancel"), body, KakaoCancelVO.class);
+			PayVO pvo = new PayVO();
+			pvo.setPay_id(tid);
+			pcservice.payCancel(pvo);
 			return kakaoc;
         
         } catch (RestClientException e) {

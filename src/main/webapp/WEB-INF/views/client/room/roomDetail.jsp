@@ -19,8 +19,7 @@
 		</div>
 		<br>
 		<div class="container">
-			<form method="get" action="/bookForm">
-			<input type="hidden" name="room_id" value="${room.room_id}"/>
+			<form method="get" action="/bookForm/${room.room_id}">
 			<div class="row">
 				<h2 class="col-lg col-md-12 detail_menu">${room.room_name} ${room.room_type}</h2>
 				<div class="col-lg col-md-12 detail_menu">
@@ -60,6 +59,7 @@
 					</tr>
 				</tbody>
 			</table>
+			</form>
 		</div>
 	</main>
 

@@ -31,5 +31,10 @@ public class PayClientServiceImpl implements PayClientService {
 	public void updateStatus(PayVO pvo) {
 		pcdao.updateStatus(pvo);
 	}
+	
+	@Override
+	public void payCancel(PayVO pvo) {
+		pcdao.payCancel(pvo);
+	}
 
 }

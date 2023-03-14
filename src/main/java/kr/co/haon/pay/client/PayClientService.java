@@ -12,4 +12,6 @@ public interface PayClientService {
 	PayVO payInfo(PayVO pvo);
 	
 	void updateStatus(PayVO pvo);
+	
+	void payCancel(PayVO pvo);
 }

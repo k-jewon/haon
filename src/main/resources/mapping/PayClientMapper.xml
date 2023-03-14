@@ -16,4 +16,7 @@
 	<update id="updateStatus" parameterType="Pay">
 	update haon_book set book_status=2 where book_id=#{book_id}
 	</update>
+	<update id="payCancel" parameterType="Pay">
+	update haon_pay set pay_status='CANCEL_PAYMENT' where pay_id=#{pay_id}
+	</update>
 </mapper>
