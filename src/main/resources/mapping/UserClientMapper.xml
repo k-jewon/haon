@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE  mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.haon.user.client.UserClientDAOImpl">
+<mapper namespace="kr.co.haon.user.client.UserClientDAO">
 
 	<select id="loginCheck" resultType="User">
 		SELECT * 
@@ -11,5 +11,22 @@
 	<insert id="joinCheck" >
 		INSERT INTO HAON_USER(user_email, user_pw, user_name, user_phone, user_gender, user_birth, user_addr1, user_addr2)
 		VALUES(#{user_email}, #{user_pw}, #{user_name}, #{user_phone}, #{user_gender}, #{user_birth}, #{user_addr1}, #{user_addr2});
+	</insert>
+	
+	<select id="kakaoCheck" resultType="string">
+		SELECT USER_EMAIL
+		FROM HAON_USER
+		WHERE USER_EMAIL = #{user_email};
+	</select>
+	
+	<select id="kakaoLogin" resultType="User">
+		SELECT *
+		FROM HAON_USER
+		WHERE USER_EMAIL = #{user_email};
+	</select>
+	
+	<insert id="kakaoJoin" >
+		INSERT INTO HAON_USER(user_email, user_pw, user_name, user_gender, user_birth)
+		VALUES(#{user_email}, #{user_pw}, #{user_name}, #{user_gender}, #{user_birth});
 	</insert>
 </mapper>

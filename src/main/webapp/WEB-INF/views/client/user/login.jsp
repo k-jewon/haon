@@ -38,7 +38,7 @@
                                         </div>
                                         <input type="submit" class="btn btn-primary btn-user btn-block" value="로그인">
                                         <hr>
-                                        <button class="btn btn-warning btn-user btn-block" onclick="loginWithKakao()">kakao계정으로 로그인</button>
+                                        <a href="https://kauth.kakao.com/oauth/authorize?client_id=898ef37dfbfe74fc5be093b71f06be2f&redirect_uri=http://localhost:8080/kakaoLogin&response_type=code" class="btn btn-warning btn-user btn-block">kakao계정으로 로그인</a>
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -58,17 +58,4 @@
         </div>
 
     </div>
-    <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js" charset="utf-8"></script>
-	<script type="text/javascript">
-	    $(document).ready(function(){
-	        Kakao.init('script앱키 입력');
-	        Kakao.isInitialized();
-	    });
-	
-	    function loginWithKakao() {
-	        Kakao.Auth.authorize({ 
-	        redirectUri: 'http://localhost:8080/kakaoLogin' 
-	        }); // 등록한 리다이렉트uri 입력
-	    }
-	</script>
     <jsp:include page="/WEB-INF/views/client/footer.jsp" />

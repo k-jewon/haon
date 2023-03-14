@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 
 import kr.co.haon.user.UserVO;
@@ -38,8 +41,8 @@ public class UserClientController {
 	}
 	
 	@RequestMapping(value = "/client/user/login", method = RequestMethod.POST)
-	public String loginAction(UserVO vo, HttpSession session, Model model, HttpServletRequest request) {
-		System.out.println("login 컨트롤러");
+	public String loginAction(UserVO vo, HttpSession session, Model model) {
+
 		UserVO login_info = userClientService.loginCheck(vo);
 		if(login_info == null) {
 			String messageTitle = "로그인 오류";
@@ -136,4 +139,14 @@ public class UserClientController {
         
         return num;
     }
+	
+	@RequestMapping(value = "/kakaoLogin", method = RequestMethod.GET)
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, UserVO vo, HttpSession session, Model model) throws Throwable {
+		String access_Token = userClientService.getAccessToken(code);
+	
+		UserVO login_info = userClientService.getUserInfo(access_Token);
+		session.setAttribute("login_info", login_info);
+		return "redirect:/";
+	}
+	
 }

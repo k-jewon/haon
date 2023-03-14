@@ -59,9 +59,9 @@
 											<select class="form-control form-control-user select"
 												name="user_gender" required>
 												<option value="" disabled selected>성별을 선택해주세요</option>
-												<option value="M">남성</option>
-												<option value="W">여성</option>
-												<option value="A">양성</option>
+												<option value="male">남성</option>
+												<option value="female">여성</option>
+												<option value="they">양성</option>
 											</select>
 										</div>
 										<div class="form-group">
@@ -86,35 +86,32 @@
 												placeholder="상세주소" autocomplete="off" required> <input
 												type="hidden" id="sample4_jibunAddress" placeholder="지번주소">
 											<input type="hidden" id="sample4_postcode" placeholder="우편번호">
-											<span id="guide" style="color: #999; display: none"></span> <input
-												type="hidden" id="sample4_extraAddress" placeholder="참고항목">
-
-										</div>
-										<!--
-                                      <div class="form-group">
-                                         <input type="text" class="form-control form-control-user" name="user_addr2" placeholder="Address2">
-                                      </div>
-                                      -->
-										<input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
-										<hr>
-										<a href="index.html" class="btn btn-google btn-user btn-block">
-											<i class="fab fa-google fa-fw"></i> Register with Google
-										</a>
-								</form>
-								<hr>
-                                  <div class="text-center">
-                                      <a class="small" href="/ForgotPassword.do">비밀번호를 잊어버리셨나요?</a>
-                                  </div>
-                                  <div class="text-center">
-                                      <a class="small" href="/client/user/login">로그인</a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-         </div>
-      </div>
+											<span id="guide" style="color:#999;display:none"></span>
+											<input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
+		                                </div>
+		                                <!--
+		                                <div class="form-group">
+		                                	<input type="text" class="form-control form-control-user" name="user_addr2" placeholder="Address2">
+		                                </div>
+		                                -->
+		                                <input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
+		                                <hr>
+		                                <a href="https://kauth.kakao.com/oauth/authorize?client_id=898ef37dfbfe74fc5be093b71f06be2f&redirect_uri=http://localhost:8080/kakaoLogin&response_type=code" class="btn btn-warning btn-user btn-block">kakao계정으로 로그인</a>
+		                            </form>
+		                            <hr>
+		                            <div class="text-center">
+		                                <a class="small" href="/ForgotPassword.do">비밀번호를 잊어버리셨나요?</a>
+		                            </div>
+		                            <div class="text-center">
+		                                <a class="small" href="/client/user/login">로그인</a>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+			</div>
+		</div>
     </div>
     
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
