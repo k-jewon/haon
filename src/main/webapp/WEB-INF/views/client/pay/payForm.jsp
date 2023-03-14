@@ -15,9 +15,7 @@ function pay() {
 					"tax_free_amount": "0", "approval_url": "http://localhost:8080/kakaopaysuccess",
 					"cancel_url": "http://localhost:8080/paycancel", "fail_url": "http://localhost:8080/payerror" },
 			success: function(data) {
-				console.log(data);
-			},
-			error: {
+				location.href=data.next_redirect_pc_url
 			}
 		});
 	} else {
@@ -34,14 +32,13 @@ function pay() {
 		<div class="row">
 			<div class="col-md-12">
 				<form class="needs-validation" novalidate method="POST" action="/kakaopay">
+				<input type="hidden" name="partner_order_id" value="${payinfo.book_id}"/>
+				<input type="hidden" name="partner_user_id" value="${payinfo.user_id}"/>
+				<input type="hidden" name="item_name" value="${payinfo.room_name}${payinfo.room_type}"/>
+				<input type="hidden" name="total_amount" value="${payinfo.book_price}"/>
 				<h4 class="mb-3">
 					${payinfo.room_name} ${payinfo.room_type}<span class="text-muted">${payinfo.book_id}</span>
 				</h4>
-				<input type="hidden" name="room_id" value="${payinfo.room_id}" id="room_id" />
-				<input type="hidden" name="book_id" value="${payinfo.book_id}" id="book_id" />
-				<input type="hidden" name="user_id" value="${payinfo.user_id}" id="user_id" />
-				<input type="hidden" name="room_name" value="${payinfo.room_name}" id="room_name" />
-				<input type="hidden" name="room_type" value="${payinfo.room_type}" id="room_type" />
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="userName">결제자</label> <input type="text" name="user_name"

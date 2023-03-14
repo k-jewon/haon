@@ -10,4 +10,6 @@ public interface PayClientService {
 	void paySucceed(PayVO pvo);
 	
 	PayVO payInfo(PayVO pvo);
+	
+	void updateStatus(PayVO pvo);
 }
