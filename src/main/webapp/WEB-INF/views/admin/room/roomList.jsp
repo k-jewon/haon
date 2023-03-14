@@ -4,14 +4,11 @@
 <jsp:include page="/WEB-INF/views/admin/admin_header.jsp"></jsp:include>
 <script>
    $(document).ready(function() {
-      $('#nav5').addClass('active');
+      $('#nav4').addClass('active');
    })
 </script>
 <!-- Page Wrapper -->
 <div id="wrapper">
-
-
-
    <!-- Content Wrapper -->
    <div id="content-wrapper" class="d-flex flex-column">
 
@@ -31,7 +28,7 @@
             <div class="card shadow mb-4">
                <div class="card-body">
                   <div class="table-responsive">
-                     	<input type="button" value="객실등록" class="float-right" onclick="location.href='/adminRoomInsertForm'"> 
+                        <input type="button" value="객실등록" class="float-right" onclick="location.href='/admin/adminRoomInsertForm'"> 
                      <div class="col-sm-12 col-md-6">
                         <div id="dataTable_filter" class="dataTables_filter">
                            <label>검색:<input type="search" 
@@ -44,42 +41,23 @@
                            <tr>
                               <th>객실 번호</th>
                               <th>객실명</th>
+                              <th>객실 타입</th>
                               <th>객실 가격</th>
                               <th>객실 설명</th>
-                              <th>객실 사진</th>
                               <th>비고</th>
                            </tr>
                         </thead>
                         <tbody>
-
-                           <%-- <c:forEach var="payVO" items="${boardList}">
-                           <tr>
-                               <td><c:out value="${payVO.pay_id}" /></td>
-                               <td><c:out value="${payVO.room_name}" /></td>
-                               <td><c:out value="${payVO.user_id}" /></td>
-                               <td><c:out value="${payVO.pay_static}" /></td>
-                               <td><c:out value="${payVO.pay_price}" /></td>
-                               <td><input type="button" value="결제취소" /></td>
-                           </tr>
-                           </c:forEach> --%>
-                           <tr>
-                              <td>Tiger Nixon</td>
-                              <td>System Architect</td>
-                              <td>Edinburgh</td>
-                              <td>2011/04/25</td>
-                              <td>$320,800</td>
-                              <td><input type="button" value="예약수정" />
-                              <input type="button" value="예약취소" /></td>
-                           </tr>
-                           <tr>
-                              <td>Garrett Winters</td>
-                              <td>Accountant</td>
-                              <td>Tokyo</td>
-                              <td>63</td>
-                              <td>2011/07/25</td>
-                              <td><input type="button" value="예약수정" />
-                              <input type="button" value="예약취소" /></td>
-                           </tr>
+                     <c:forEach var="r" items="${roomList}">
+                              <tr>
+                                  <td><c:out value="${r.room_id}"/></td>
+                                  <td><c:out value="${r.room_name}" /></td>
+                                  <td><c:out value="${r.room_type}" /></td>
+                                  <td><c:out value="${r.room_price}" /></td>
+                                  <td><input type="button" value="객실수정" class="btn btn-primary btn-icon-split" onclick=""/>
+                                 <input type="button" value="객실삭제" class="btn btn-danger btn-icon-split" onclick="roomDelete(${r.room_id})"/></td>
+                              </tr>
+                              </c:forEach>
                         </tbody>
                      </table>
                   </div>

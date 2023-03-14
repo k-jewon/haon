@@ -6,6 +6,7 @@ import java.util.Locale;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +18,8 @@ import kr.co.haon.user.UserVO;
 @Controller
 public class RoomClientController {
    
-     @Inject
-       private RoomClientService service;
+    @Autowired
+     private RoomClientService service;
    
    
    @RequestMapping("/roomList1")

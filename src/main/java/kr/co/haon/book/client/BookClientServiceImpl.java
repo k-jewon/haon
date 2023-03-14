@@ -11,20 +11,20 @@ import kr.co.haon.book.BookVO;
 public class BookClientServiceImpl implements BookClientService{
 	
 	@Autowired
-	BookClientDAO bookDAO;
+	private BookClientDAO bookDAO;
 	
 	@Override
-	public void insertOne(BookVO bookVO) {
-		bookDAO.insertOne(bookVO);
+	public int insertOne(BookVO bookVO) {
+		return bookDAO.insertOne(bookVO);
 	}
 	
 	@Override
-	public List<BookVO> getBookList() {
-		return bookDAO.getBookList();
+	public List<BookVO> getBookList(int user_Id) {
+		return bookDAO.getBookList(user_Id);
 	}
 	
 	@Override
-	public void updateOne(int book_id) {
-		bookDAO.updateOne(book_id);
+	public void updateOne(int book_Id) {
+		bookDAO.updateOne(book_Id);
 	}
 }

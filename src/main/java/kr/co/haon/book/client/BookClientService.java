@@ -5,9 +5,9 @@ import java.util.List;
 import kr.co.haon.book.BookVO;
 
 public interface BookClientService {
-	public void insertOne(BookVO bookVO);
+	public int insertOne(BookVO bookVO);
 	
-	public List<BookVO> getBookList();
+	public List<BookVO> getBookList(int user_Id);
 	
-	public void updateOne(int book_id);
+	public void updateOne(int book_Id);
 }

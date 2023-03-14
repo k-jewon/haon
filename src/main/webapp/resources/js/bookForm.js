@@ -3,7 +3,8 @@ $(document).ready(function(){
    			var hp = Number($('#hp').val());
     		var pp = Number($('#pp').val());
     		var bp = Number($('#bp').val());
-   			$('#totalPrice').text(rp + hp + pp + bp);
+   			$('#totalPrice').text(rp + hp + pp + bp + (rp + hp + pp + bp)*0.1);
+   			$('#taxPrice').text((rp + hp + pp + bp)*0.1);
    			$('#roomPrice').val();
    		});
    		function modalFunction(){
@@ -61,6 +62,7 @@ $(document).ready(function(){
     		var checkIn =  new Date($('#checkIn').val());
    			var checkOut = new Date($('#checkOut').val());
    			var bak = (checkOut - checkIn)/(1000*60*60*24);
+   		   			
     		if($('#checkIn').val() == ""){
     			alert("체크인 날짜를 입력해 주세요");
     			$('#checkIn').focus();
@@ -93,3 +95,25 @@ $(document).ready(function(){
     	  	$('#taxPrice').text((Number(rp) + Number(hp) + Number(pp) + Number(bp))*0.1);
     	  	$('#totalPrice').text((Number(rp) + Number(hp) + Number(pp) + Number(bp)) + (Number(rp) + Number(hp) + Number(pp) + Number(bp))*0.1);
     	}
+    	
+    	function test(){
+    		console.log("1234");
+    		var checkIn =  new Date($('#checkIn').val());
+   			var checkOut = new Date($('#checkOut').val());
+   			var bak = (checkOut - checkIn)/(1000*60*60*24);
+   			console.log(bak);
+   			
+   			if(!($('#checkIn').val() == "") && !($('#checkOut').val() == "")){
+	   			console.log("2222222");
+	    		var rp = Number($('#roomPrice').text());
+	   			var hp = Number($('#hp').val());
+	    		var pp = Number($('#pp').val());
+	    		var bp = Number($('#bp').val());
+	   			$('#totalPrice').text(rp * bak + hp + pp + bp + (rp * bak + hp + pp + bp)*0.1);
+	   			$('#taxPrice').text((rp * bak + hp + pp + bp)*0.1);
+	   			$('#roomPrice').text(rp * bak);
+	   			$('#bak').text(bak);
+    		}
+    	
+    	}
+    	

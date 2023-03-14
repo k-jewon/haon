@@ -12,22 +12,23 @@ import kr.co.haon.book.BookVO;
 public class BookClientDAOImpl implements BookClientDAO{
 
 	@Autowired
-	SqlSessionTemplate sst;
+	private SqlSessionTemplate sst;
 	
 	@Override
-	public void insertOne(BookVO bookVO) {
-		sst.insert("kr.co.haon.book.client.BookClientDAO.insertBook", bookVO);
+	public int insertOne(BookVO bookVO) {
+		return sst.insert("kr.co.haon.book.client.BookClientDAO.insertBook", bookVO);
 	}
 	
 	@Override
-	public List<BookVO> getBookList() {
-		return sst.selectList("kr.co.haon.book.client.BookClientDAO.getBookList");
+	public List<BookVO> getBookList(int user_Id) {
+		return sst.selectList("kr.co.haon.book.client.BookClientDAO.getBookList", user_Id);
 	}
 	
+	
 	@Override
-	public void updateOne(int book_id) {
+	public void updateOne(int book_Id) {
 		System.out.println("업데이트 전");
-		sst.update("kr.co.haon.book.client.BookClientDAO.updateBook",book_id);
+		sst.update("kr.co.haon.book.client.BookClientDAO.updateBook",book_Id);
 		System.out.println("업데이트 후");
 	}
 }
