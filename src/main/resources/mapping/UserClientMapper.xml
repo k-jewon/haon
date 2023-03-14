@@ -13,7 +13,7 @@
 		VALUES(#{user_email}, #{user_pw}, #{user_name}, #{user_phone}, #{user_gender}, #{user_birth}, #{user_addr1}, #{user_addr2});
 	</insert>
 	
-	<select id="kakaoCheck" resultType="string">
+	<select id="emailCheck" resultType="string">
 		SELECT USER_EMAIL
 		FROM HAON_USER
 		WHERE USER_EMAIL = #{user_email};
@@ -29,4 +29,8 @@
 		INSERT INTO HAON_USER(user_email, user_pw, user_name, user_gender, user_birth)
 		VALUES(#{user_email}, #{user_pw}, #{user_name}, #{user_gender}, #{user_birth});
 	</insert>
+	
+	<update id="changePw">
+   	 update haon_user set user_pw = #{user_pw} where user_email = #{user_email};
+ 	</update>
 </mapper>

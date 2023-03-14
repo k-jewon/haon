@@ -160,7 +160,7 @@ public class UserClientServiceImpl implements UserClientService {
 				String birthday = kakao_account.get("birthday").toString();
 				String gender = kakao_account.get("gender").toString();
 				
-				String kakaoCheck = userClientDAO.kakaoCheck(email);
+				String kakaoCheck = userClientDAO.emailCheck(email);
 				
 				vo.setUser_email(email);
 				
@@ -180,5 +180,11 @@ public class UserClientServiceImpl implements UserClientService {
 			e.printStackTrace();
 		}
 		return userClientDAO.kakaoLogin(vo.getUser_email());
+	}
+	
+	@Override
+	public int changePw(UserVO vo) {
+		
+		return userClientDAO.changePw(vo);
 	}
 }

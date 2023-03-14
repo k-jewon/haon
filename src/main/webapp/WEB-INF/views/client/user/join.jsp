@@ -17,7 +17,7 @@
 									<h1 class="h4 text-gray-900 mb-4">회원가입</h1>
 								</div>
 								<form action="/client/user/join" class="user" method="post" name="login_form">
-									<h6 class="email_Check">이메일</h6>
+									<h6 class="email_Check">이메일<span class="btn btn-primary email_check_button">이메일 중복확인</span></h6>
 									<div class="form-group">
 										<input type="email" class="form-control form-control-user"
 											name="user_email" id="userEmail" placeholder="Email Address"
@@ -38,7 +38,13 @@
 									<div class="form-group">
 										<input type="password" class="form-control form-control-user"
 											name="user_pw" placeholder="Password" autocomplete="off"
-											required>
+											id="pw1" required>
+									</div>
+									<h6>비밀번호</h6>
+									<div class="form-group">
+										<input type="password" class="form-control form-control-user"
+										 	placeholder="Password" autocomplete="off"
+											id="pw2" required>
 									</div>
 									<h6>이름</h6>
 										<div class="form-group">
@@ -52,7 +58,7 @@
 											<input type="tel" class="form-control form-control-user"
 												name="user_phone" placeholder="Phone number"
 												pattern="[0-9]{11}" maxlength="11" autocomplete="off"
-												required>
+												>
 										</div>
 										<div class="form-group">
 											<h6>성별</h6>
@@ -83,35 +89,38 @@
 												placeholder="도로명주소" required> <input type="text"
 												class="form-control form-control-user mb-2"
 												id="sample4_detailAddress" name="user_addr2"
-												placeholder="상세주소" autocomplete="off" required> <input
+												placeholder="상세주소" autocomplete="off"> <input
 												type="hidden" id="sample4_jibunAddress" placeholder="지번주소">
 											<input type="hidden" id="sample4_postcode" placeholder="우편번호">
-											<span id="guide" style="color:#999;display:none"></span>
-											<input type="hidden" id="sample4_extraAddress" placeholder="참고항목">
-		                                </div>
-		                                <!--
-		                                <div class="form-group">
-		                                	<input type="text" class="form-control form-control-user" name="user_addr2" placeholder="Address2">
-		                                </div>
-		                                -->
-		                                <input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
-		                                <hr>
-		                                <a href="https://kauth.kakao.com/oauth/authorize?client_id=898ef37dfbfe74fc5be093b71f06be2f&redirect_uri=http://localhost:8080/kakaoLogin&response_type=code" class="btn btn-warning btn-user btn-block">kakao계정으로 로그인</a>
-		                            </form>
-		                            <hr>
-		                            <div class="text-center">
-		                                <a class="small" href="/ForgotPassword.do">비밀번호를 잊어버리셨나요?</a>
-		                            </div>
-		                            <div class="text-center">
-		                                <a class="small" href="/client/user/login">로그인</a>
-		                            </div>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-			</div>
-		</div>
+											<span id="guide" style="color: #999; display: none"></span> <input
+												type="hidden" id="sample4_extraAddress" placeholder="참고항목">
+
+										</div>
+										<!--
+                                      <div class="form-group">
+                                         <input type="text" class="form-control form-control-user" name="user_addr2" placeholder="Address2">
+                                      </div>
+                                      -->
+										<input type="submit" class="btn btn-primary btn-user btn-block" value="회원가입">
+										<hr>
+										<a href="index.html" class="btn btn-google btn-user btn-block">
+											<i class="fab fa-google fa-fw"></i> Register with Google
+										</a>
+								</form>
+								<hr>
+                                  <div class="text-center">
+                                      <a class="small" href="/ForgotPassword.do">비밀번호를 잊어버리셨나요?</a>
+                                  </div>
+                                  <div class="text-center">
+                                      <a class="small" href="/client/user/login">로그인</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+         </div>
+      </div>
     </div>
     
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -172,8 +181,10 @@
         }).open();
     }
     
-    var code = "";  
+    var code = "";
+    var confirm = "";
     var inputCode = $(".mail_check_input").val();
+    var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     
     /* 인증번호 이메일 전송 */
     $(".mail_check_button").click(function(){
@@ -181,14 +192,13 @@
         var email = $("#userEmail").val();        // 입력한 이메일
         var cehckBox = $(".mail_check_input");        // 인증번호 입력란
         var boxWrap = $(".mail_check_input_box");    // 인증번호 입력란 박스
-        var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
         
         if (email.match(regExp) != null) {
     	    alert('인증번호가 발송되었습니다.');
     	    $.ajax({
                 
                 type:"GET",
-                url:"mailCheck?email=" + email,
+                url:"/mailCheck?email=" + email,
                 success:function(data){
                     
                     console.log("data : " + data);
@@ -203,6 +213,30 @@
     	  }
     });
 
+    $(".email_check_button").click(function(){
+    	var email = $("#userEmail").val();
+    	
+    	if (email.match(regExp) != null) {
+    	    $.ajax({
+                
+                type:"GET",
+                url:"/emailCheck?email=" + email,
+                success:function(email_confirm){
+                    
+                    console.log("email_confirm : " + email_confirm);
+                    
+                    if(email_confirm == email){
+                    	alert("이미 사용중인 이메일입니다.")
+                    }else{
+                    	alert("사용 가능한 이메일입니다.")
+                    }
+                }
+            });
+    	  }
+    	  else {
+    	    alert('이메일 형식이 맞지 않습니다.');
+    	  }
+    })
     
     /* 인증번호 비교 */
     $(".mail_check_input").blur(function(){
@@ -216,6 +250,7 @@
             $("#confirm_text").html("<span class='text-success' name='login_check'>이메일 인증이 완료되었습니다.</span>");
             $("#mail_check_button").attr("readonly", true);
             $("#userEmail").attr("readonly", true);
+            $('.mail_check_input').attr("disabled", true);
             $('.mail_check_button').addClass("d-none");
         } else {                                            // 일치하지 않을 경우
             checkResult.html("인증번호를 다시 확인해주세요.");
@@ -225,9 +260,14 @@
     
     document.querySelector('form').addEventListener('submit', function(e){
     	var inputCode = $(".mail_check_input").val();
+    	var pw1 = $("#pw1").val();
+    	var pw2 = $("#pw2").val();
     	if(code != inputCode){
     	alert("이메일 인증을 완료해주세요.");
         e.preventDefault(); // 폼 submit(페이지갱신) 동작 금지
+        }else if(pw1 != pw2){
+        	alert("비밀번호가 맞지 않습니다.");
+        	e.preventDefault(); // 폼 submit(페이지갱신) 동작 금지
         }
 });
     

@@ -20,8 +20,8 @@ public class UserClientDAOImpl implements UserClientDAO {
 		return sqlsession.insert("kr.co.haon.user.client.UserClientDAO.joinCheck",  vo);
 	}
 	@Override
-	public String kakaoCheck(String email) {
-		return sqlsession.selectOne("kr.co.haon.user.client.UserClientDAO.kakaoCheck",  email);
+	public String emailCheck(String email) {
+		return sqlsession.selectOne("kr.co.haon.user.client.UserClientDAO.emailCheck",  email);
 	}
 	@Override
 	public int kakaoJoin(UserVO vo) {
@@ -30,5 +30,9 @@ public class UserClientDAOImpl implements UserClientDAO {
 	@Override
 	public UserVO kakaoLogin(String email) {
 		return sqlsession.selectOne("kr.co.haon.user.client.UserClientDAO.kakaoLogin",  email);
+	}
+	@Override
+	public int changePw(UserVO vo) {
+		return sqlsession.update("kr.co.haon.user.client.UserClientDAO.changePw",  vo);
 	}
 }
