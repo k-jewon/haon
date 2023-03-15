@@ -88,10 +88,10 @@
 				</svg>
 
 				<h2>
-					<a href="/roomList1" cursor="pointer">무궁화 
+					<a href="/roomList1" cursor="pointer" title="무궁화 자세히 보기">무궁화 
 				</h2>
 				<p class='main_list'>
-					<a href="/roomList1" cursor="pointer"> 2인실로 적합하며, 욕실에는 전통
+					<a href="/roomList1" cursor="pointer" title="무궁화 자세히 보기"> 2인실로 적합하며, 욕실에는 전통
 						느낌의 대형 편백나무 욕조가 있어 아늑하고 편안한 휴식을 즐기실 수 있습니다. </a>
 				</p>
 				<p>
@@ -111,10 +111,10 @@
 				</svg>
 
 				<h2>
-					<a href="/roomList2" cursor="pointer">소나무 
+					<a href="/roomList2" cursor="pointer" title="소나무 자세히 보기">소나무 
 				</h2>
 				<p class='main_list'>
-					<a href="/roomList2" cursor="pointer"> 4인실로 적합하며, 일반 더블
+					<a href="/roomList2" cursor="pointer" title="소나무 자세히 보기"> 4인실로 적합하며, 일반 더블
 						사이즈 보다 큰 더블 베드와 선택가능한 베개, 그리고 포근한 침구가 준비되어 있습니다. </a>
 				</p>
 				<p>
@@ -134,10 +134,10 @@
 				</svg>
 
 				<h2>
-					<a href="/roomList3" cursor="pointer">사랑채</a>
+					<a href="/roomList3" cursor="pointer" title="사랑채 자세히 보기">사랑채</a>
 				</h2>
 				<p class='main_list'>
-					<a href="/roomList3" cursor="pointer"> 스위트룸으로 구성되어있으며, 한옥의
+					<a href="/roomList3" cursor="pointer" title="사랑채 자세히 보기"> 스위트룸으로 구성되어있으며, 한옥의
 						운치를 더하여 특별히 모셔야 할 분이나 가족단위 고객에게 적합합니다. </a>
 				</p>
 				<p>
@@ -158,10 +158,10 @@
 				</svg>
 
 				<h2>
-					<a href="/roomList4" cursor="pointer">백두산 
+					<a href="/roomList4" cursor="pointer" title="백두산 자세히 보기">백두산 
 				</h2>
 				<p class='main_list'>
-					<a href="/roomList4" cursor="pointer"> 단체예약 전용객실이며, 2개의
+					<a href="/roomList4" cursor="pointer" title="백두산 자세히 보기"> 단체예약 전용객실이며, 2개의
 						침실과 탁 트인 대청마루 그리고 앞, 뒤 마당까지 갖춰 넓은 한옥집을 연상케합니다. 서까래와 대들보가 보이는 천장은
 						안정감을 줍니다. </a>
 				</p>

@@ -17,5 +17,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	
 	<script src="/resources/js/adminList.js"></script>
+	<script src="/resources/js/RoomDelete.js"></script>
 </body>
 </html>

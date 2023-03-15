@@ -4,16 +4,17 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class RoomVO {
 
-	private String room_id;
+	private int room_id;
 	private String room_name;
 	private String room_type;
 	private int room_price;
 	private String room_desc;
 	private MultipartFile room_image;
-	public String getRoom_id() {
+	
+	public int getRoom_id() {
 		return room_id;
 	}
-	public void setRoom_id(String room_id) {
+	public void setRoom_id(int room_id) {
 		this.room_id = room_id;
 	}
 	public String getRoom_name() {
@@ -50,5 +51,6 @@ public class RoomVO {
 	public String toString() {
 		return "RoomVO [room_id=" + room_id + ", room_name=" + room_name + ", room_type=" + room_type + ", room_price="
 				+ room_price + ", room_desc=" + room_desc + ", room_image=" + room_image + "]";
-	}	
+	}
+
 }

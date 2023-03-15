@@ -24,4 +24,19 @@ public class RoomAdminServiceImpl implements RoomAdminService {
    public List<RoomVO> getRoomList() throws Exception {
       return dao.getRoomList();
    }
+
+   @Override
+   public void delete(RoomVO vo) throws Exception {
+	dao.delete(vo);
+}
+
+@Override
+	public void update(RoomVO vo) throws Exception {
+		dao.update(vo);
+	}
+
+@Override
+public RoomVO getRoomByRoomID(RoomVO vo) throws Exception {
+	return dao.getRoomByRoomID(vo);
+}
 }

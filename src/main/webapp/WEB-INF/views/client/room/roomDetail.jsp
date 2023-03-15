@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Room 상세정보 페이지</title>
+<title>객실 상세정보 페이지</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,6 +20,7 @@
 		<br>
 		<div class="container">
 			<form method="get" action="/bookForm/${room.room_id}">
+			<input type="hidden" name="room_id" value="${room.room_id}"/>
 			<div class="row">
 				<h2 class="col-lg col-md-12 detail_menu">${room.room_name} ${room.room_type}</h2>
 				<div class="col-lg col-md-12 detail_menu">
@@ -65,5 +66,3 @@
 
 	<hr class="featurette-divider">
 	<jsp:include page="/WEB-INF/views/client/footer.jsp" />
-</body>
-</html>
