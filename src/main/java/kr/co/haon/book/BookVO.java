@@ -3,9 +3,9 @@ package kr.co.haon.book;
 import java.sql.Date;
 
 public class BookVO {
-	private int book_Id;
-	private int room_Id;
-	private int user_Id;
+	private int book_id;
+	private int room_id;
+	private int user_id;
 	private int book_capacity;
 	private int book_price;
 	private Date book_reserveDate;
@@ -21,23 +21,23 @@ public class BookVO {
 	private String type;
 	private String keyword;
 	
-	public int getBook_Id() {
-		return book_Id;
+	public int getBook_id() {
+		return book_id;
 	}
-	public void setBook_Id(int book_Id) {
-		this.book_Id = book_Id;
+	public void setBook_id(int book_id) {
+		this.book_id = book_id;
 	}
-	public int getRoom_Id() {
-		return room_Id;
+	public int getRoom_id() {
+		return room_id;
 	}
-	public void setRoom_Id(int room_Id) {
-		this.room_Id = room_Id;
+	public void setRoom_id(int room_id) {
+		this.room_id = room_id;
 	}
-	public int getUser_Id() {
-		return user_Id;
+	public int getUser_id() {
+		return user_id;
 	}
-	public void setUser_Id(int user_Id) {
-		this.user_Id = user_Id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public int getBook_capacity() {
 		return book_capacity;
@@ -116,7 +116,7 @@ public class BookVO {
 	
 	@Override
 	public String toString() {
-		return "BookVO [book_Id=" + book_Id + ", room_Id=" + room_Id + ", user_Id=" + user_Id + ", book_capacity="
+		return "BookVO [book_id=" + book_id + ", room_id=" + room_id + ", user_id=" + user_id + ", book_capacity="
 				+ book_capacity + ", book_price=" + book_price + ", book_reserveDate=" + book_reserveDate
 				+ ", book_checkIn=" + book_checkIn + ", book_checkOut=" + book_checkOut + ", book_more=" + book_more
 				+ ", book_status=" + book_status + ", book_hanbok=" + book_hanbok + ", book_breakfast=" + book_breakfast

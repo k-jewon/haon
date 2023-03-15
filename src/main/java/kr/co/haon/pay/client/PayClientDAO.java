@@ -25,4 +25,12 @@ public class PayClientDAO {
 	public PayVO payInfo(PayVO pvo) {
 		return mybatis.selectOne("kr.co.haon.pay.client.PayClientDAO.payInfo", pvo);
 	}
+	
+	public void updateStatus(PayVO pvo) {
+		mybatis.update("kr.co.haon.pay.client.PayClientDAO.updateStatus", pvo);
+	}
+	
+	public void payCancel(PayVO pvo) {
+		mybatis.update("kr.co.haon.pay.client.PayClientDAO.payCancel", pvo);
+	}
 }

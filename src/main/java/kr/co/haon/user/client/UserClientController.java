@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 
 import kr.co.haon.user.UserVO;
@@ -31,6 +34,9 @@ public class UserClientController {
 	@Autowired
 	private JavaMailSender mailSender;
 	
+	@Autowired
+	UserClientDAOImpl userClientDAOImpl;
+	
 	@RequestMapping(value = "/client/user/login", method = RequestMethod.GET)
 	public String login() {
 		
@@ -38,8 +44,8 @@ public class UserClientController {
 	}
 	
 	@RequestMapping(value = "/client/user/login", method = RequestMethod.POST)
-	public String loginAction(UserVO vo, HttpSession session, Model model, HttpServletRequest request) {
-		System.out.println("login 컨트롤러");
+	public String loginAction(UserVO vo, HttpSession session, Model model) {
+
 		UserVO login_info = userClientService.loginCheck(vo);
 		if(login_info == null) {
 			String messageTitle = "로그인 오류";
@@ -96,7 +102,7 @@ public class UserClientController {
 		
 	}
 	
-	@RequestMapping(value="/client/user/mailCheck", method=RequestMethod.GET)
+	@RequestMapping(value="/mailCheck", method=RequestMethod.GET)
     @ResponseBody
     public String mailCheckGET(String email) throws Exception{
         
@@ -136,4 +142,55 @@ public class UserClientController {
         
         return num;
     }
+	
+	@RequestMapping(value="/emailCheck", method=RequestMethod.GET)
+	@ResponseBody
+	public String emailCheck(String email) throws Exception{
+		System.out.println("이메일 :" + email);
+		
+		String check = userClientDAOImpl.emailCheck(email);
+		System.out.println(check);
+		if(check == null) {
+			return null;
+		} else {
+			return check;
+		}
+		
+	}
+	
+	@RequestMapping(value = "/kakaoLogin", method = RequestMethod.GET)
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, UserVO vo, HttpSession session, Model model) throws Throwable {
+		String access_Token = userClientService.getAccessToken(code);
+	
+		UserVO login_info = userClientService.getUserInfo(access_Token);
+		session.setAttribute("login_info", login_info);
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value="/client/user/find", method=RequestMethod.GET)
+	public String find() {
+		return "client/user/forgotPassword";
+	}
+	
+	@RequestMapping(value="/client/user/find", method=RequestMethod.POST)
+	public String change(UserVO vo, Model model) {
+		System.out.println(vo.getUser_email());
+		int changeCheck = userClientService.changePw(vo);
+		System.out.println("find 컨트롤러 도착");
+		System.out.println(changeCheck);
+		if(changeCheck == 0) {
+			String messageTitle = "비밀번호 변경 오류";
+			String message = "다시한번 변경요청 부탁드립니다.";
+			model.addAttribute("messageTitle", messageTitle);
+			model.addAttribute("message", message);
+			return "redirect:/client/user/find";
+		} else {
+			String messageTitle = "비밀변호 재설정되었습니다.";
+			String message = "로그인 페이지로 이동합니다.";
+			model.addAttribute("messageTitle", messageTitle);
+			model.addAttribute("message", message);
+			return "client/user/login";
+		}
+				
+	}
 }

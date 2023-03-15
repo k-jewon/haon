@@ -13,11 +13,26 @@ public class UserClientDAOImpl implements UserClientDAO {
 	private SqlSessionTemplate sqlsession;
 	@Override
 	public UserVO loginCheck(UserVO vo) {
-		return sqlsession.selectOne("kr.co.haon.user.client.UserClientDAOImpl.loginCheck",  vo);
+		return sqlsession.selectOne("kr.co.haon.user.client.UserClientDAO.loginCheck",  vo);
 	}
 	@Override
 	public int joinCheck(UserVO vo) {
-		return sqlsession.insert("kr.co.haon.user.client.UserClientDAOImpl.joinCheck",  vo);
+		return sqlsession.insert("kr.co.haon.user.client.UserClientDAO.joinCheck",  vo);
 	}
-	
+	@Override
+	public String emailCheck(String email) {
+		return sqlsession.selectOne("kr.co.haon.user.client.UserClientDAO.emailCheck",  email);
+	}
+	@Override
+	public int kakaoJoin(UserVO vo) {
+		return sqlsession.insert("kr.co.haon.user.client.UserClientDAO.kakaoJoin",  vo);
+	}
+	@Override
+	public UserVO kakaoLogin(String email) {
+		return sqlsession.selectOne("kr.co.haon.user.client.UserClientDAO.kakaoLogin",  email);
+	}
+	@Override
+	public int changePw(UserVO vo) {
+		return sqlsession.update("kr.co.haon.user.client.UserClientDAO.changePw",  vo);
+	}
 }

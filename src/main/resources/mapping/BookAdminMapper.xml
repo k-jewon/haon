@@ -10,10 +10,10 @@
 		select * from haon_book
 		where 1 = 1
 		<choose>
-			<when test="type != null and type.equals('user_Id')">
+			<when test="type != null and type.equals('user_id')">
 				and user_id like concat('%', #{keyword}, '%')
 			</when>
-			<when test="type != null and type.equals('room_Id')">
+			<when test="type != null and type.equals('room_id')">
 				and room_id like concat('%', #{keyword}, '%')
 			</when>
 			<when test="type != null and type.equals('book_status')">

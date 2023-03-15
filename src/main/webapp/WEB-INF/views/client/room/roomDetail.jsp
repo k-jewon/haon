@@ -60,6 +60,7 @@
 					</tr>
 				</tbody>
 			</table>
+			</form>
 		</div>
 	</main>
 

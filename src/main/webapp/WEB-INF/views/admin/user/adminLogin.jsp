@@ -20,7 +20,7 @@
     <link href="resources/css/sb-admin-2.min.css" rel="stylesheet">
 	
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100  p-0">
 
     <div class="container">
 
