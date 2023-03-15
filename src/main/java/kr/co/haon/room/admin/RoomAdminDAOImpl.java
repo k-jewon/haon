@@ -16,7 +16,6 @@ public class RoomAdminDAOImpl implements RoomAdminDAO {
 
    @Override
    public void insert(RoomVO rvo) throws Exception {
-      System.out.println("===> Mybatis로 insert() 기능 처리");
       Ss.insert("kr.co.haon.room.admin.RoomAdminDAO.RoomReg", rvo);
    }
 
@@ -25,4 +24,19 @@ public class RoomAdminDAOImpl implements RoomAdminDAO {
       return Ss.selectList("kr.co.haon.room.admin.RoomAdminDAO.getRoomList");
    }
 
+@Override
+public void delete(RoomVO rvo) throws Exception {
+	Ss.delete("kr.co.haon.room.admin.RoomAdminDAO.Room_Delete", rvo);
+	
+}
+
+	@Override
+	public void update(RoomVO rvo) throws Exception {
+	Ss.update("kr.co.haon.room.admin.RoomAdminDAO.Room_Update", rvo);
+	}
+
+@Override
+public RoomVO getRoomByRoomID(RoomVO rvo) throws Exception {
+		return Ss.selectOne("kr.co.haon.room.client.RoomClientDAO.getRoomByRoomID", rvo);
+	}
 }

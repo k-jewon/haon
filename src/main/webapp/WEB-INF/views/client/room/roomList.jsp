@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Room1 리스트</title>
+<title>객실 리스트</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/client/header.jsp" />
@@ -42,8 +42,6 @@
 				</div>
 				<hr class="featurette-divider">
 			</c:forEach>
-			<jsp:include page="/WEB-INF/views/client/footer.jsp" />
 		</main>
 	</div>
-</body>
-</html>
+	<jsp:include page="/WEB-INF/views/client/footer.jsp" />

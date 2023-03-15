@@ -8,4 +8,14 @@
    <select id="getRoomList" resultType="Room">
          SELECT room_id, room_name, room_type, room_price, room_desc FROM haon_room;
    </select>
+   <update id="Room_Update" parameterType="Room">
+   		UPDATE HAON_ROOM 
+   		SET room_name=#{room_name}, room_type=#{room_type}, room_price=#{room_price}, room_desc=#{room_desc} where room_id=#{room_id}
+   </update>
+   <delete id="Room_Delete" parameterType="Room">
+   		DELETE FROM HAON_ROOM WHERE room_id=#{room_id}
+   </delete>
+   <select id="getRoomByRoomID" resultType="Room">
+	select * from haon_room where room_id = #{room_id}
+</select>
 </mapper>

@@ -8,4 +8,10 @@ public interface RoomAdminDAO {
    public void insert(RoomVO vo) throws Exception;
    
    public List<RoomVO> getRoomList() throws Exception;
+   
+   public void delete (RoomVO vo) throws Exception;
+   
+   public void update (RoomVO vo) throws Exception;
+   
+   public RoomVO getRoomByRoomID(RoomVO vo) throws Exception;
 }
